@@ -1,0 +1,32 @@
+<html>
+    
+    <head>
+        <script src="jquery-3.2.1.js"></script>
+        
+ 
+    
+    </head>
+    
+    
+    
+    <body>
+       <canvas id="canvas" style="border : 1px solid black;"></canvas>
+        <div style="display: none">
+        <img id="source" onload="draw()" src="image.jpg" width="600" height="600">
+        </div>
+    </body>
+
+
+
+<script>
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var image = document.getElementById('source');
+    canvas.width = 600;
+    canvas.height = 600;
+    
+    function draw(){
+        ctx.drawImage(image, 33, 71, 104, 124, 21, 20, 87, 104);
+    }
+    </script>   
+</html>    
