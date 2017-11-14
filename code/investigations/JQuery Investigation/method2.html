@@ -22,11 +22,33 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 var image = document.getElementById('source');
-    canvas.width = 600;
-    canvas.height = 600;
-    
+    var canvSize = 600; // pixels
+    canvas.width = canvSize;
+    canvas.height = canvSize;
+    var cells = 4;
+    var images = [[]];
     function draw(){
-        ctx.drawImage(image, 33, 71, 104, 124, 21, 20, 87, 104);
+       for(var i = 0; i < cells; i++){
+           for(var j = 0; j < cells; j++){
+       images[i[j]] = ctx.drawImage(image, i *(canvSize/cells) , j*(canvSize/cells),canvSize/cells, canvSize/cells, (canvSize/cells)*i, (canvSize/cells) *j, canvSize/cells, canvSize/cells);
+       
+           }
+       }
+    
+        
     }
+    console.log(images);
+    //context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
+    /*
+    img 	Specifies the image, canvas, or video element to use 	 
+    sx 	Optional. The x coordinate where to start clipping 	
+    sy 	Optional. The y coordinate where to start clipping 	
+    swidth 	Optional. The width of the clipped image 	
+    sheight 	Optional. The height of the clipped image 	
+    x 	The x coordinate where to place the image on the canvas 	
+    y 	The y coordinate where to place the image on the canvas 	
+    width 	Optional. The width of the image to use (stretch or reduce the image) 	
+    height 	Optional. The height of the image to use (stretch or reduce the image)
+*/
     </script>   
 </html>    
