@@ -2,7 +2,7 @@
     
     <head>
         <script src="jquery-3.2.1.js"></script>
-        
+        <link rel=stylesheet src="stylesheet2.css"/>
  
     
     </head>
@@ -25,19 +25,75 @@ var image = document.getElementById('source');
     var canvSize = 600; // pixels
     canvas.width = canvSize;
     canvas.height = canvSize;
-    var cells = 4;
-    var images = [[]];
+    var cells = 6;
+    var rows = cells;
+    var columns = cells;
+    var board = [];
+    //tileObjs[j] = [];
+    emptyBoard();
+    function emptyBoard(){
+        board = [];
+        board.length = rows;
+        /*board.forEach(function(row){
+            row.length = columns;
+        });*/
+        for(var i = 0; i < rows; i++){
+            var row = [];
+            for( var j = 0; j < columns; j++){
+                row.push(null);
+            }
+            board[i] = row;
+        }
+        
+        console.log(board);
+        
+    }
+    
     function draw(){
-       for(var i = 0; i < cells; i++){
-           for(var j = 0; j < cells; j++){
-       images[i[j]] = ctx.drawImage(image, i *(canvSize/cells) , j*(canvSize/cells),canvSize/cells, canvSize/cells, (canvSize/cells)*i, (canvSize/cells) *j, canvSize/cells, canvSize/cells);
-       
+        
+       for(var x = 0; x < columns; x++){
+           for(var y = 0; y < rows; y++){
+
+
+               board[y][x] = new tile(x, y, image);
+                   if(y == columns-1 && x == rows-1){
+                     
+                   }
+               else{
+                    board[y][x].drawTile(x, y, image);
+               }
            }
        }
     
+    //console.log(tileObjs);
+    /*
+       var 2darray = 
+       [
+        [11,12,13,14],
+        [21,22,23,24],
+        [31,32,33,34],
+        [41,42,43,44]
+       ]
+        */
+    }
+    
+    
+    class tile{
+
+        constructor(i, j, image){
+        this.image = image;
+        this.i = i;
+        this.j = j;
+        }
+        drawTile(i, j){
+            ctx.strokeRect(i* (canvSize/cells), j*(canvSize/cells), canvSize/cells, canvSize/cells);
+            
+            ctx.drawImage(image, i *(canvSize/cells) , j*(canvSize/cells),canvSize/cells, canvSize/cells, (canvSize/cells)*i, (canvSize/cells) *j, canvSize/cells, canvSize/cells);
+        }
         
     }
-    console.log(images);
+    
+    
     //context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
     /*
     img 	Specifies the image, canvas, or video element to use 	 
