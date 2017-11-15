@@ -10,33 +10,38 @@
     
     
     <body>
-       <canvas id="canvas" style="border : 1px solid black;"></canvas>
+       <canvas id="canvas" style="border : 1px solid black;" onclick="checkMouse()"></canvas>
         <div style="display: none">
-        <img id="source" onload="draw()" src="image.jpg" width="600" height="600">
+        <img id="source" onload="createTiles()" src="image.jpg" width="600" height="600">
         </div>
     </body>
 
 
 
 <script>
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
-var image = document.getElementById('source');
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var image = document.getElementById('source');
+    document.addEventListener('mousemove', onMouseUpdate, false);
     var canvSize = 600; // pixels
     canvas.width = canvSize;
     canvas.height = canvSize;
-    var cells = 6;
+    
+    
+    var cells = 3;
+    var cellSize = canvSize/cells;
     var rows = cells;
     var columns = cells;
     var board = [];
-    //tileObjs[j] = [];
-    emptyBoard();
-    function emptyBoard(){
+    var mouseX = 0;
+    var mouseY = 0;
+    
+    var emptySquare = new Tile(cells-1, cells-1, null);
+    
+    createEmptyBoard();
+    function createEmptyBoard(){
         board = [];
         board.length = rows;
-        /*board.forEach(function(row){
-            row.length = columns;
-        });*/
         for(var i = 0; i < rows; i++){
             var row = [];
             for( var j = 0; j < columns; j++){
@@ -44,67 +49,108 @@ var image = document.getElementById('source');
             }
             board[i] = row;
         }
-        
-        console.log(board);
-        
+    }
+    function onMouseUpdate(e){
+    mouseX = e.pageX;
+    mouseY = e.pageY;
+    }
+    function checkMouse(){
+        //console.log(mouseX + " " + mouseY);
+        //console.log(board[3][0].x);
+        for(var x = 0; x < columns; x++){
+           for(var y = 0; y < rows; y++){
+                if(y == columns-1 && x == rows-1){
+                     
+                   }
+               else{
+                   if(mouseX > board[x][y].x){
+                       if(mouseX < board[x][y].x + cellSize){
+                           if(mouseY > board[x][y].y){
+                               if(mouseY < board[x][y].y + cellSize) {
+                                    checkPosition(board[x][y]);                         
+                                   }
+                                   
+                                   //console.log(board[x][y]);
+                                    //console.log(x + " " + y);
+                                   
+                                }
+                           }
+                       }
+                  }
+                   
+               }    
+           }
+       }
+    function checkPosition(Tile){
+        var x = 0;
+        var y = 0;
+        if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){
+            emptySquare.x = Tile.x;
+            Tile.x += cellSize;
+            updateTiles();
+        }
+        else if((Tile.x - cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){
+            emptySquare.x = Tile.x;
+            Tile.x -= cellSize;
+            updateTiles();
+        }
+        else if((Tile.y + cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){
+            emptySquare.y = Tile.y;
+            Tile.y += cellSize;
+            updateTiles();
+        }
+        else if((Tile.y - cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){
+            emptySquare.y = Tile.y;
+            Tile.y -= cellSize;
+            updateTiles();
+        }
     }
     
-    function draw(){
-        
-       for(var x = 0; x < columns; x++){
+    function updateTiles(){
+        canvas.width += 0;
+              for(var x = 0; x < columns; x++){
            for(var y = 0; y < rows; y++){
-
-
-               board[y][x] = new tile(x, y, image);
                    if(y == columns-1 && x == rows-1){
                      
                    }
                else{
-                    board[y][x].drawTile(x, y, image);
+                    board[y][x].drawTiles();
                }
            }
        }
     
-    //console.log(tileObjs);
-    /*
-       var 2darray = 
-       [
-        [11,12,13,14],
-        [21,22,23,24],
-        [31,32,33,34],
-        [41,42,43,44]
-       ]
-        */
+}
+    
+    function createTiles(){
+        
+       for(var x = 0; x < columns; x++){
+           for(var y = 0; y < rows; y++){
+               
+                if(y == columns-1 && x == rows-1){}
+               else{
+                   board[y][x] = new Tile(x, y, image);
+                   board[y][x].drawTiles();
+               }
+           }
+       }
     }
-    
-    
-    class tile{
-
-        constructor(i, j, image){
-        this.image = image;
+    function Tile(i, j, image){
         this.i = i;
         this.j = j;
-        }
-        drawTile(i, j){
-            ctx.strokeRect(i* (canvSize/cells), j*(canvSize/cells), canvSize/cells, canvSize/cells);
-            
-            ctx.drawImage(image, i *(canvSize/cells) , j*(canvSize/cells),canvSize/cells, canvSize/cells, (canvSize/cells)*i, (canvSize/cells) *j, canvSize/cells, canvSize/cells);
-        }
+        this.x = i * cellSize;
+        this.y = j * cellSize;
+        this.a = this.x;
+        this.b = this.y;
+        this.size = cellSize;
+        this.image = image;
+        
+    
+        Tile.prototype.drawTiles = function(){
+       
+            ctx.strokeRect(this.x, this.y, this.size, this.size);
+            ctx.drawImage(this.image, this.a , this.b,this.size, this.size, this.x, this.y, this.size, this.size);
+        };
         
     }
-    
-    
-    //context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
-    /*
-    img 	Specifies the image, canvas, or video element to use 	 
-    sx 	Optional. The x coordinate where to start clipping 	
-    sy 	Optional. The y coordinate where to start clipping 	
-    swidth 	Optional. The width of the clipped image 	
-    sheight 	Optional. The height of the clipped image 	
-    x 	The x coordinate where to place the image on the canvas 	
-    y 	The y coordinate where to place the image on the canvas 	
-    width 	Optional. The width of the image to use (stretch or reduce the image) 	
-    height 	Optional. The height of the image to use (stretch or reduce the image)
-*/
     </script>   
 </html>    
