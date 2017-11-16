@@ -51,8 +51,9 @@
         }
     }
     function onMouseUpdate(e){
-    mouseX = e.pageX;
-    mouseY = e.pageY;
+    var rect = canvas.getBoundingClientRect();
+    mouseX = e.pageX - rect.left;
+    mouseY = e.pageY - rect.top;
     }
     function checkMouse(){
         //console.log(mouseX + " " + mouseY);
@@ -82,8 +83,6 @@
            }
        }
     function checkPosition(Tile){
-        var x = 0;
-        var y = 0;
         if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){
             emptySquare.x = Tile.x;
             Tile.x += cellSize;
