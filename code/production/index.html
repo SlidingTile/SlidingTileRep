@@ -1,5 +1,58 @@
-<html>
+<!DOCTYPE html>
 
-<h2>This will be the webpage for the Sliding Tile Game</h2>
+
+<html lang="en">
+
+	<head>
+	
+	<meta charset="utf-8"/>
+
+    <title>Ryan Simms - Sliding Game</title>
+	
+	<link rel="stylesheet" href="css/lightStyle.css" type="text/css"> <!-- Loads Stylesheet -->
+	
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Roboto'); <!-- Custom Font -->
+	</style>
+
+	</head>
+
+	<body>
+	<script src="scripts/lightSwitch.js"></script> <!-- Loads Script -->
+	<script src="scripts/slidingTile.js"></script> <!-- Loads Script -->
+	
+		<h1>Sliding Game</h1>
+	<div id="wrap"> <!-- Wrap Around -->
+	<div id="sideBar"> <!-- Side Navigation -->
+		<h2>Select Image:</h2>
+		<img src="images/dog.jpg" alt="Temp Image"></img>
+		<img src="images/italy.jpg" alt="Temp Image"></img>
+		<h2>Select Difficulty:</h2>
+		<p id="easy">Easy</p>
+		<p id="medium">Medium</p>
+		<p id="hard">Hard</p>
+		<button>Reset</button><br>
+		<button>Randomise</button>
+		<p>Timer:</p>
+		<div id="timer">0</div>
+	</div> <!-- Closes Side Bar -->
+	
+	<div id="mainContent"> <!-- Main Body -->
+		<canvas id="game" width="600px" height="600px"></canvas>
+		<div style="display: none">
+        <img id="source" src="images/italy.jpg">
+        </div>
+	</div> <!-- Closes Main Content-->
+	
+	</div> <!-- Closes Wrap Around -->
+	
+	<footer>
+		Website Created by Ryan Simms <br>
+		16024828@stu.mmu.ac.uk <br>
+		<button type="button" id="lightSwitchOff"></button>
+		<button type="button" id="lightSwitchOn"></button>
+	</footer> <!-- Closes Footer -->
+		
+	</body>
 
 </html>
