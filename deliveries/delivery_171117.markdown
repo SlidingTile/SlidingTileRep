@@ -9,6 +9,7 @@
  - Variable Background Image
  - Game Stats
  - Randomize function
+ 
  [Budget](https://github.com/SlidingTile/SlidingTileRep/blob/master/docs/budget/effort_committment.xlsx) 1823 Hours
  
  [Features](https://trello.com/b/mXhTkLfn/features)
