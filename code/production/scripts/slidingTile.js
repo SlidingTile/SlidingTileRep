@@ -1,60 +1,62 @@
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
-function handleDocumentLoad() {    
+function handleDocumentLoad() {   
 	
 	var canvas = document.getElementById('game');
-    var ctx = canvas.getContext('2d');
-    var image = document.getElementById('source');
-    canvas.addEventListener('mousemove', onMouseUpdate, false);
+	var ctx = canvas.getContext('2d');
+	var image = document.getElementById('source');
+	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	canvas.addEventListener('click', checkMouse);
 	image.addEventListener('load', createTiles);
-    var canvSize = 600; // pixels
-    canvas.width = canvSize;
-    canvas.height = canvSize;
+    	var canvSize = 600; // pixels
+    	canvas.width = canvSize;
+    	canvas.height = canvSize;
 	image.width = canvSize;
 	image.height = canvSize;
 	
-	var timer = 0;
-    var downloadTimer = setInterval(function(){
-    timer++;
-    document.getElementById("timer").textContent = timer;
-    },1000);
-    
-    
-    var cells = 3;
-    var cellSize = canvSize/cells;
-    var rows = cells;
-    var columns = cells;
-    var board = [];
-    var mouseX = 0;
-    var mouseY = 0;
-    
-    var emptySquare = new Tile(cells-1, cells-1, null);
-    
-    createEmptyBoard();
-    function createEmptyBoard(){
-        board = [];
-        board.length = rows;
-        for(var i = 0; i < rows; i++){
-            var row = [];
-            for( var j = 0; j < columns; j++){
-                row.push(null);
-            }
-            board[i] = row;
-        }
-    }
+    	var timer = 0;
+	var start = document.getElementByID('start');
+	start.addEventListener('click', startTimer);
 	
-    function onMouseUpdate(e){
+    	function startTimer() {
+		timer++;
+		document.getElementById("timer").textContent = timer;
+	},1000);
+    
+    
+	var cells = 3;
+    	var cellSize = canvSize/cells;
+    	var rows = cells;
+    	var columns = cells;
+    	var board = [];
+    	var mouseX = 0;
+    	var mouseY = 0;
+    
+    	var emptySquare = new Tile(cells-1, cells-1, null);
+    
+    	createEmptyBoard();
+    	function createEmptyBoard() {
+        	board = [];
+        	board.length = rows;
+        	for(var i = 0; i < rows; i++) {
+           	 var row = [];
+            	for( var j = 0; j < columns; j++) {
+                	row.push(null);
+            	}
+            	board[i] = row;
+        	}
+    	}
+	
+    	function onMouseUpdate(e) {
 		var rect = canvas.getBoundingClientRect();
 		mouseX = e.pageX - rect.left;
 		mouseY = e.pageY - rect.top;
-    }
+	}
 	
-    function checkMouse(){
-        for(var x = 0; x < columns; x++){
-           for(var y = 0; y < rows; y++){
-                if(y == columns-1 && x == rows-1){
-                     
+    	function checkMouse() {
+        	for(var x = 0; x < columns; x++) {
+           	for(var y = 0; y < rows; y++) {
+                	if(y == columns-1 && x == rows-1) {
                    }
                else{
                    if(mouseX > board[x][y].x){
