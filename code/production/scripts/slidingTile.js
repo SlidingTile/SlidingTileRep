@@ -19,9 +19,9 @@ function handleDocumentLoad() {
 	start.addEventListener('click', startTimer);
 	
     	function startTimer() {
+		timer = setInterval(1000);
 		timer++;
 		document.getElementById("timer").textContent = timer;
-		setInterval(1000);
 	}
     
     
