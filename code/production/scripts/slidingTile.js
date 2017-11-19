@@ -14,16 +14,16 @@ function handleDocumentLoad() {
 	image.width = canvSize;
 	image.height = canvSize;
 	
-    	var timer = 0;
+    	var timer;
 	var start = document.getElementById('start');
 	start.addEventListener('click', startTimer);
 	
     	function startTimer() {
 		timer = setInterval(clock, 1000);
+		var c = 0;
 		
 		function clock() {
-			timer++;
-			document.getElementById("timer").textContent = timer;
+			document.getElementById("timer").innerHTML = ++c;
 		}
 	}
     
