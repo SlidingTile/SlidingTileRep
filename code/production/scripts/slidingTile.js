@@ -21,7 +21,8 @@ function handleDocumentLoad() {
     	function startTimer() {
 		timer++;
 		document.getElementById("timer").textContent = timer;
-	},1000);
+		setInterval(1000);
+	}
     
     
 	var cells = 3;
