@@ -1,4 +1,4 @@
-@charset "utf-8
+@charset "utf-8"
 
 @font-face {
 	font-family: 'Roboto', sans-serif;
@@ -131,6 +131,7 @@
 		float: left;
 		text-align: center;
 		padding: 1em;
+		margin-bottom: 3em;
 	}
 	
 	#sideBar img{
