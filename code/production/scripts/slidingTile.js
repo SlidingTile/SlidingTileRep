@@ -19,6 +19,7 @@ function handleDocumentLoad() {
 	start.addEventListener('click', startTimer);
 	
     	function startTimer() {
+		start.style.display = "none";
 		timer = setInterval(clock, 1000);
 		var c = 0;
 		
