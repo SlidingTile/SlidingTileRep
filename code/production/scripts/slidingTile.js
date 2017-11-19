@@ -15,7 +15,7 @@ function handleDocumentLoad() {
 	image.height = canvSize;
 	
     	var timer = 0;
-	var start = document.getElementByID('start');
+	var start = document.getElementById('start');
 	start.addEventListener('click', startTimer);
 	
     	function startTimer() {
