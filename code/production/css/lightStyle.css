@@ -107,6 +107,7 @@
 		left: 178px; top: 92px; right: 0; bottom: 0;
 		padding: 2em;
 		text-align: center;
+		border: solid 1px black;
 	}
 	
 	#sideBar {
@@ -115,6 +116,7 @@
 		width: 178px;
 		text-align: center;
 		padding: 1em;
+		border-left: solid 1px black;
 	}
 	
 	#sideBar img{
