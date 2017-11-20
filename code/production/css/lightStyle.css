@@ -100,14 +100,14 @@
 	/*Main Body*/
 	#mainContent {
 		position: absolute;
-		left:178px; top:92px; right:0; bottom:0;
+		left: 178px; top: 92px; right: 0; bottom: 0;
 		padding: 2em;
 		text-align: center;
 	}
 	
 	#sideBar {
 		position:absolute;
-		left:0; top:92px; bottom: 0;
+		left: 20px; top: 92px; bottom: 0;
 		width: 178px;
 		text-align: center;
 		padding: 1em;
