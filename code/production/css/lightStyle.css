@@ -8,6 +8,8 @@
 	/*webpage fades in*/
 	html {
 		animation: fadein 2s;
+		position: relative;
+		min-height: 100%;
 	}
 
 	/*animation*/
@@ -21,6 +23,8 @@
 		color: black;
 		font-family: 'Roboto';
 		background-color: #FFF;
+		margin: 0 0 100px;
+		padding: 25px;
 	}
 	
 	/*Links*/
