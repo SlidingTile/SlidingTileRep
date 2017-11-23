@@ -11,7 +11,7 @@
 		
 	<link rel="shortcut icon" href="images/SoftBricks.ico"> <!-- Tab Icon -->
 	
-	<link rel="stylesheet" href="css/lightStyle.css" type="text/css"> <!-- Loads Stylesheet -->
+	<link rel="stylesheet" href="lightStyle.css" type="text/css"> <!-- Loads Stylesheet -->
 	
 	<style>
 	@import url('https://fonts.googleapis.com/css?family=Roboto'); <!-- Custom Font -->
@@ -27,6 +27,7 @@
 		<h1>Sliding Game</h1>
 	</header> <!--Closes Header -->
 		
+	<div id="wrap"> <!-- Wrap Around -->
 	<div id="leftSideBar"> <!-- Left Side Bar -->
 		<h2>Select Image:</h2>
 		<img src="images/dog.jpg" alt="Image Unvailable"></img>
@@ -41,17 +42,18 @@
 		<div id="timer">0</div><br>
 	</div> <!-- Closes Left Side Bar -->
 	
-	<div id="mainContent"> <!-- Main Body -->
+	<div id="mainContent"> <!-- Main Middle Content -->
 		<canvas id="game" width="600px" height="600px">Cavas is not available on your browser</canvas><br>
 		<button id="start">Start</button>
 		<div style="display: none">
         		<img id="source" src="images/italy.jpg" alt="Image Unvailable">
-        	</div>
-	</div> <!-- Closes Main Content-->
+        </div>
+	</div> <!-- Closes Middle Content -->
 
 	<div id="rightSideBar"> <!-- Right Side Bar -->
 		<h2>Leaderboard</h2>
 	</div> <!-- Closes Right Side Bar -->
+	</div> <!-- Closes Main Content-->
 	
 	<footer>
 		Website Created by Ryan Simms <br>
