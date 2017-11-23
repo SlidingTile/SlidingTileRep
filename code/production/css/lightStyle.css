@@ -103,11 +103,11 @@
 	/*Main Body*/
 	#mainContent {
 		position: absolute;
-		left: 10em; top: 8em; right: 0; bottom: 1em;
+		left: 10em; top: 8em; right: 10em; bottom: 1em;
 		text-align: center;
 	}
 	
-	#sideBar {
+	#leftSideBar {
 		position: absolute;
 		left: 0; top: 8em; right: 0; bottom: 0;
 		width: 10em;
@@ -117,10 +117,20 @@
 		max-height: 2000px;
 	}
 	
-	#sideBar img {
+	#leftSideBar img {
 		max-width: 100px;
 		max-height: 100px;
 		margin-bottom: 2em;
+	}
+
+	#rightSideBar {
+		position: absolute;
+		left: 0; top: 8em; right: 10em; bottom: 0;
+		width: 10em;
+		text-align: center;
+		padding: 2em;
+		border-left: solid 1px black;
+		max-height: 2000px;
 	}
 	
 	/*Light Switches*/
