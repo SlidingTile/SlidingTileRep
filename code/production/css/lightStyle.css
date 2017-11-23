@@ -60,7 +60,6 @@
 	h1 {
 		font-size: 3em;
 		text-align: center;
-		display: flex;
 		margin: auto;
 	}
 	
@@ -109,12 +108,11 @@
 		flex-direction: row;
 		justify-content: space-around; 
 		flex-wrap: wrap;
-		height: 800px;
+		height: 700px;
 		border: solid 1px black;
 	}
 	
 	#leftSideBar {
-		height: 150px;
 		height: 660px;
 		margin-top: 20px;
 		text-align: center;
@@ -127,15 +125,12 @@
 	}
 	
 	#mainContent {
-		position: relative;
 		height: 150px;
 		margin-top: 40px;
 		text-align: center;
 	}
 
 	#rightSideBar {
-		position: relative;
-		height: 150px;
 		height: 660px;
 		margin-top: 20px;
 		text-align: center;
