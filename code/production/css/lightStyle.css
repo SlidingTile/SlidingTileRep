@@ -114,6 +114,7 @@
 		text-align: center;
 		padding: 2em;
 		border-right: solid 1px black;
+		max-height: 2000px;
 	}
 	
 	#sideBar img {
