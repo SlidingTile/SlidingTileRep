@@ -11,7 +11,7 @@
 		
 	<link rel="shortcut icon" href="images/SoftBricks.ico"> <!-- Tab Icon -->
 	
-	<link rel="stylesheet" href="css/lightStyle.css" type="text/css"> <!-- Loads Stylesheet -->
+	<link rel="stylesheet" href="lightStyle.css" type="text/css"> <!-- Loads Stylesheet -->
 	
 	<style>
 	@import url('https://fonts.googleapis.com/css?family=Roboto'); <!-- Custom Font -->
@@ -20,8 +20,7 @@
 	</head>
 
 	<body>
-	<script src="scripts/lightSwitch.js"></script> <!-- Loads Script -->
-	<script src="scripts/slidingTile.js"></script> <!-- Loads Script -->
+	<script src="slidingTile.js"></script> <!-- Loads Script -->
 	
 	<header>
 		<h1>Sliding Game</h1>
@@ -29,9 +28,14 @@
 		
 	<div id="wrap"> <!-- Wrap Around -->
 	<div id="leftSideBar"> <!-- Left Side Bar -->
-		<h2>Select Image:</h2>
-		<img src="images/dog.jpg" alt="Image Unvailable"></img>
-		<img src="images/italy.jpg" alt="Image Unvailable"></img>
+		<h2>Select Category:</h2>
+		<select name="categories">
+			<option value="default" selected>Select a Category</option>
+			<option value="Animals">Animals</option>
+			<option value="Cars">Cars</option>
+			<option value="Scenery">Scenery</option>
+			<option value="Custom">Custom</option>
+		</select>
 		<h2>Select Difficulty:</h2>
 		<p id="easy">Easy</p>
 		<p id="medium">Medium</p>
@@ -47,7 +51,7 @@
 		<button id="start">Start</button>
 		<div style="display: none">
         		<img id="source" src="images/italy.jpg" alt="Image Unvailable">
-		</div>
+        </div>
 	</div> <!-- Closes Middle Content -->
 
 	<div id="rightSideBar"> <!-- Right Side Bar -->
