@@ -25,7 +25,7 @@ function handleDocumentLoad() {
 	
 	function startTimer()
 	{
-		start.style.display = 'none';
+		start.style.display = 'none'; //Hides start button
 		time = setInterval(setTime, 1000); //Repeats function every 1000ms or 1 second
 
 		function setTime()
@@ -36,7 +36,7 @@ function handleDocumentLoad() {
 		}
 	}
 	
-	var reset = document.getElementById("reset");
+	var reset = document.getElementById("reset"); //Reset button
 	reset.addEventListener('click', clearAll);
 	
 	function clearAll() //Resets value and stops function
@@ -45,7 +45,7 @@ function handleDocumentLoad() {
 		secondsLabel.innerHTML = pad(totalSeconds%60);
 		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
 		clearInterval(time);
-		start.style.display = 'inline';
+		start.style.display = 'inline'; //Shows start button
 	}
 	
 /*----------------------------------------------------------------------------------------*/
