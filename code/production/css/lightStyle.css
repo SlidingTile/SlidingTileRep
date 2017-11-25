@@ -114,7 +114,6 @@
 	}
 	
 	#leftSideBar {
-		height: 660px;
 		margin-top: 20px;
 		text-align: center;
 	}
@@ -126,13 +125,11 @@
 	}
 	
 	#mainContent {
-		height: 700px;
 		margin-top: 40px;
 		text-align: center;
 	}
 
 	#rightSideBar {
-		height: 660px;
 		margin-top: 20px;
 		text-align: center;
 	}
