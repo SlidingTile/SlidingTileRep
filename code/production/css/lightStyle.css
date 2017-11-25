@@ -130,6 +130,7 @@
 	}
 	
 	#start {
+		font-size: 2em;
 		position: relative;
 		top: -175px;
 	}
