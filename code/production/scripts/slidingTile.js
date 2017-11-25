@@ -25,6 +25,7 @@ function handleDocumentLoad() {
 	
 	function startTimer()
 	{
+		start.style.display = 'none';
 		time = setInterval(setTime, 1000); //Repeats function every 1000ms or 1 second
 
 		function setTime()
@@ -44,6 +45,7 @@ function handleDocumentLoad() {
 		secondsLabel.innerHTML = pad(totalSeconds%60);
 		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
 		clearInterval(time);
+		start.style.display = 'inline';
 	}
 	
 /*----------------------------------------------------------------------------------------*/
