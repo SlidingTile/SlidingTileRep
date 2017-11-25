@@ -1,7 +1,54 @@
 document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
-function handleDocumentLoad() {   
+function handleDocumentLoad() {
 	
+	/*Timer Function*/
+	var minutesLabel = document.getElementById("minutes");
+	var secondsLabel = document.getElementById("seconds");
+	var start = document.getElementById('start');
+	start.addEventListener('click', startTimer);
+	var totalSeconds = 0;
+	var time;
+	
+	function pad(val) //Takes value of the number of seconds
+	{
+		var valString = val + "";
+		if(valString.length < 2) //If value is less than 2 characters long
+		{
+			return "0" + valString; //adds a zero first
+		}
+		else
+		{
+			return valString; //else returns actual value
+		}
+	}
+	
+	function startTimer()
+	{
+		time = setInterval(setTime, 1000);
+
+		function setTime()
+		{
+			++totalSeconds;
+			secondsLabel.innerHTML = pad(totalSeconds%60);
+			minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+		}
+	}
+	
+	var reset = document.getElementById("reset");
+	reset.addEventListener('click', clearAll);
+	
+	function clearAll()
+	{
+		totalSeconds = 0;
+		secondsLabel.innerHTML = pad(totalSeconds%60);
+		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+		clearInterval(time);
+	}
+	
+/*----------------------------------------------------------------------------------------*/
+	
+	/*Sliding Tile Function*/
 	var canvas = document.getElementById('game');
 	var ctx = canvas.getContext('2d');
 	var image = document.getElementById('source');
@@ -10,39 +57,7 @@ function handleDocumentLoad() {
 	image.addEventListener('load', createTiles);
 	var canvSize = 600; // pixels
 	canvas.width = canvSize;
-	canvas.height = canvSize;
-	
-	var minutesLabel = document.getElementById("minutes");
-	var secondsLabel = document.getElementById("seconds");
-	var start = document.getElementById('start');
-	start.addEventListener('click', startTimer);
-	var totalSeconds = 0;
-	
-	function startTimer()
-	{
-	setInterval(setTime, 1000);
-
-	function setTime()
-	{
-		++totalSeconds;
-		secondsLabel.innerHTML = pad(totalSeconds%60);
-		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
-	}
-
-	function pad(val)
-	{
-		var valString = val + "";
-		if(valString.length < 2)
-		{
-			return "0" + valString;
-		}
-		else
-		{
-			return valString;
-		}
-    }
-	}
-    
+	canvas.height = canvSize;    
     
 	var cells = 3;
     var cellSize = canvSize/cells;
