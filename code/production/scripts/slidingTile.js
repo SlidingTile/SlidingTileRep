@@ -25,11 +25,11 @@ function handleDocumentLoad() {
 	
 	function startTimer()
 	{
-		time = setInterval(setTime, 1000);
+		time = setInterval(setTime, 1000); //Repeats function every 1000ms or 1 second
 
 		function setTime()
 		{
-			++totalSeconds;
+			++totalSeconds; //Increases seconds
 			secondsLabel.innerHTML = pad(totalSeconds%60);
 			minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
 		}
@@ -38,7 +38,7 @@ function handleDocumentLoad() {
 	var reset = document.getElementById("reset");
 	reset.addEventListener('click', clearAll);
 	
-	function clearAll()
+	function clearAll() //Resets value and stops function
 	{
 		totalSeconds = 0;
 		secondsLabel.innerHTML = pad(totalSeconds%60);
