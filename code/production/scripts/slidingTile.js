@@ -8,39 +8,54 @@ function handleDocumentLoad() {
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	canvas.addEventListener('click', checkMouse);
 	image.addEventListener('load', createTiles);
-    	var canvSize = 600; // pixels
-    	canvas.width = canvSize;
-    	canvas.height = canvSize;
-	image.width = canvSize;
-	image.height = canvSize;
+	var canvSize = 600; // pixels
+	canvas.width = canvSize;
+	canvas.height = canvSize;
 	
-    	var timer;
+	var minutesLabel = document.getElementById("minutes");
+	var secondsLabel = document.getElementById("seconds");
 	var start = document.getElementById('start');
 	start.addEventListener('click', startTimer);
+	var totalSeconds = 0;
 	
-    	function startTimer() {
-		start.style.display = "none";
-		timer = setInterval(clock, 1000);
-		var c = 0;
-		
-		function clock() {
-			document.getElementById("timer").innerHTML = ++c;
+	function startTimer()
+	{
+	setInterval(setTime, 1000);
+
+	function setTime()
+	{
+		++totalSeconds;
+		secondsLabel.innerHTML = pad(totalSeconds%60);
+		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+	}
+
+	function pad(val)
+	{
+		var valString = val + "";
+		if(valString.length < 2)
+		{
+			return "0" + valString;
 		}
+		else
+		{
+			return valString;
+		}
+    }
 	}
     
     
 	var cells = 3;
-    	var cellSize = canvSize/cells;
-    	var rows = cells;
-    	var columns = cells;
-    	var board = [];
-    	var mouseX = 0;
-    	var mouseY = 0;
+    var cellSize = canvSize/cells;
+    var rows = cells;
+    var columns = cells;
+    var board = [];
+    var mouseX = 0;
+    var mouseY = 0;
     
-    	var emptySquare = new Tile(cells-1, cells-1, null);
+    var emptySquare = new Tile(cells-1, cells-1, null);
     
-    	createEmptyBoard();
-    	function createEmptyBoard() {
+    createEmptyBoard();
+    function createEmptyBoard() {
         	board = [];
         	board.length = rows;
         	for(var i = 0; i < rows; i++) {
