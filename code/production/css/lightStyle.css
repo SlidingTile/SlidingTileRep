@@ -108,7 +108,7 @@
 		flex-direction: row;
 		justify-content: space-around; 
 		flex-wrap: wrap;
-		height: 800px;
+		height: 675px;
 		width: 100%;
 		border: solid 1px black;
 	}
@@ -127,6 +127,11 @@
 	#mainContent {
 		margin-top: 40px;
 		text-align: center;
+	}
+	
+	#start {
+		position: relative;
+		top: -175px;
 	}
 
 	#rightSideBar {
@@ -179,6 +184,10 @@
 		max-width: 60%;
 		max-height: 60%;
 	}
+	
+	#start {
+		top: -250px;
+	}
 }
 
 /*Layout for desktop with a min-width of 1280px (720p HD)*/
@@ -204,6 +213,10 @@
 	#enter {
 		max-width: 50%;
 		max-height: 50%;
+	}
+	
+	#start {
+		top: -300px;
 	}
 }
 
