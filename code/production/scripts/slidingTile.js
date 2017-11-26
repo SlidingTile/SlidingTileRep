@@ -23,7 +23,6 @@ function handleDocumentLoad() {
 	var custom = document.getElementById('custom');
 	categories.addEventListener('change', changeCategory);
 	categories.addEventListener('change', changePictures);
-	pictures.style.visibility = 'hidden';
 	animals.style.display = 'none';
 	cars.style.display = 'none';
 	scenery.style.display = 'none';
@@ -34,11 +33,13 @@ function handleDocumentLoad() {
 		if (categories.value === 'default')
 		{
 			title.innerHTML = '';
-			pictures.style.visibility = 'hidden';
+			animals.style.display = 'none';
+			cars.style.display = 'none';
+			scenery.style.display = 'none';
+			custom.style.display = 'none';
 		}
 		else
 		{
-			pictures.style.visibility = 'initial';
 			title.innerHTML = categories.value;
 		}
 	}
@@ -66,7 +67,7 @@ function handleDocumentLoad() {
 		scenery.style.display = 'inline';
 		custom.style.display = 'none';
 		}
-		else
+		else if (categories.value === 'Custom')
 		{
 		animals.style.display = 'none';
 		cars.style.display = 'none';
@@ -110,10 +111,13 @@ function handleDocumentLoad() {
 		}
 	}
 	
-	var reset = document.getElementById("reset"); //Reset button
-	reset.addEventListener('click', clearAll);
+/*----------------------------------------------------------------------------------------*/
 	
-	function clearAll() //Resets value and stops function
+	/*Reset Function */
+	var reset = document.getElementById("reset"); //Reset button
+	reset.addEventListener('click', resetAll);
+	
+	function resetAll() //Resets value and stops function
 	{
 		totalSeconds = 0;
 		secondsLabel.innerHTML = pad(totalSeconds%60);
@@ -159,21 +163,22 @@ function handleDocumentLoad() {
         	}
     	}
 	
-    	function onMouseUpdate(e) {
-		var rect = canvas.getBoundingClientRect();
-		mouseX = e.pageX - rect.left;
-		mouseY = e.pageY - rect.top;
-	}
+    	function onMouseUpdate(e)
+		{
+			var rect = canvas.getBoundingClientRect();
+			mouseX = e.pageX - rect.left;
+			mouseY = e.pageY - rect.top;
+		}
 	
     	function checkMouse() {
         	for(var x = 0; x < columns; x++) {
            	for(var y = 0; y < rows; y++) {
                 	if(y == columns-1 && x == rows-1) {
                    }
-               else{
-                   if(mouseX > board[x][y].x){
-                       if(mouseX < board[x][y].x + cellSize){
-                           if(mouseY > board[x][y].y){
+               else {
+                   if(mouseX > board[x][y].x) {
+                       if(mouseX < board[x][y].x + cellSize) {
+                           if(mouseY > board[x][y].y) {
                                if(mouseY < board[x][y].y + cellSize) {
                                     checkPosition(board[x][y]);
                                    }
@@ -186,7 +191,7 @@ function handleDocumentLoad() {
            }
        }
 	   
-    function checkPosition(Tile){
+    function checkPosition(Tile) {
         var x = 0;
         var y = 0;
         if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){
