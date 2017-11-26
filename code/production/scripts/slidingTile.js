@@ -2,10 +2,84 @@ document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
 function handleDocumentLoad() {
 	
+	/* Hides / Unhides Canvas until start */
+	var start = document.getElementById('start');
+	start.addEventListener('click', enableCanvas);
+	game.style.visibility = 'hidden';
+	
+	function enableCanvas()
+	{
+		game.style.visibility = 'initial';
+	}
+	
+/*----------------------------------------------------------------------------------------*/
+	
+	/* Category pictures */
+	var categories = document.getElementById('categories');
+	var pictures = document.getElementById('pictures');
+	var animals = document.getElementById('animals');
+	var cars = document.getElementById('cars');
+	var scenery = document.getElementById('scenery');
+	var custom = document.getElementById('custom');
+	categories.addEventListener('change', changeCategory);
+	categories.addEventListener('change', changePictures);
+	pictures.style.visibility = 'hidden';
+	animals.style.display = 'none';
+	cars.style.display = 'none';
+	scenery.style.display = 'none';
+	custom.style.display = 'none';
+	
+	function changeCategory()
+	{
+		if (categories.value === 'default')
+		{
+			title.innerHTML = '';
+			pictures.style.visibility = 'hidden';
+		}
+		else
+		{
+			pictures.style.visibility = 'initial';
+			title.innerHTML = categories.value;
+		}
+	}
+	
+	function changePictures()
+	{
+		if (categories.value === 'Animals')
+		{
+		animals.style.display = 'inline';
+		cars.style.display = 'none';
+		scenery.style.display = 'none';
+		custom.style.display = 'none';
+		}
+		else if (categories.value === 'Cars')
+		{
+		animals.style.display = 'none';
+		cars.style.display = 'inline';
+		scenery.style.display = 'none';
+		custom.style.display = 'none';
+		}
+		else if (categories.value === 'Scenery')
+		{
+		animals.style.display = 'none';
+		cars.style.display = 'none';
+		scenery.style.display = 'inline';
+		custom.style.display = 'none';
+		}
+		else
+		{
+		animals.style.display = 'none';
+		cars.style.display = 'none';
+		scenery.style.display = 'none';
+		custom.style.display = 'inline';
+		}
+	}
+
+/*----------------------------------------------------------------------------------------*/
+	
 	/*Timer Function*/
 	var minutesLabel = document.getElementById("minutes");
 	var secondsLabel = document.getElementById("seconds");
-	var start = document.getElementById('start');
 	start.addEventListener('click', startTimer);
 	var totalSeconds = 0;
 	var time;
@@ -46,6 +120,7 @@ function handleDocumentLoad() {
 		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
 		clearInterval(time);
 		start.style.display = 'inline'; //Shows start button
+		game.style.visibility = 'hidden';
 	}
 	
 /*----------------------------------------------------------------------------------------*/
