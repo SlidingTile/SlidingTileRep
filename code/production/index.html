@@ -23,41 +23,63 @@
 	<script src="scripts/slidingTile.js"></script> <!-- Loads Script -->
 	
 	<header>
-		<h1>Sliding Game</h1>
+		<h1>Sliding Tile Game</h1>
 	</header> <!--Closes Header -->
 		
 	<div id="wrap"> <!-- Wrap Around -->
-	<div id="leftSideBar"> <!-- Left Side Bar -->
-		<h2>Select Category:</h2>
-		<select name="categories">
-			<option value="default" selected>Select a Category</option>
-			<option value="Animals">Animals</option>
-			<option value="Cars">Cars</option>
-			<option value="Scenery">Scenery</option>
-			<option value="Custom">Custom</option>
-		</select>
-		<h2>Select Difficulty:</h2>
-		<p id="easy">Easy</p>
-		<p id="medium">Medium</p>
-		<p id="hard">Hard</p>
-		<button id="reset">Reset</button><br>
-		<button>Randomise</button>
-		<p>Timer:</p>
-		<label id="minutes">00</label>:<label id="seconds">00</label><br>
-	</div> <!-- Closes Left Side Bar -->
+		<div id="leftSideBar"> <!-- Left Side Bar -->
+			<h2>Select Category:</h2>
+			<select id="categories">
+				<option value="default" selected>Select a Category</option>
+				<option value="Animals">Animals</option>
+				<option value="Cars">Cars</option>
+				<option value="Scenery">Scenery</option>
+				<option value="Custom">Custom</option>
+			</select>
+			<h2>Select Difficulty:</h2>
+			<p id="easy">Easy</p>
+			<p id="medium">Medium</p>
+			<p id="hard">Hard</p>
+			<button id="reset">Reset</button><br>
+			<button>Randomise</button>
+			<p>Timer:</p>
+			<label id="minutes">00</label>:<label id="seconds">00</label><br>
+		</div> <!-- Closes Left Side Bar -->
 	
-	<div id="mainContent"> <!-- Main Middle Content -->
-		<canvas id="game" width="600px" height="600px">Cavas is not available on your browser</canvas><br>
-		<button id="start">Start</button>
-		<div style="display: none">
-        		<img id="source" src="images/italy.jpg" alt="Image Unvailable">
-        </div>
-	</div> <!-- Closes Middle Content -->
+		<div id="mainContent"> <!-- Main Middle Content -->
+			<canvas id="game" width="600px" height="600px">Cavas is not available on your browser</canvas><br>
+			<button id="start">Start</button>
+			<div style="display: none"> <!-- Stops image loading on page -->
+					<img id="source" src="images/italy.jpg" alt="Image Unvailable">
+			</div> <!-- Closes image div -->
+		</div> <!-- Closes Middle Content -->
 
-	<div id="rightSideBar"> <!-- Right Side Bar -->
-		<h2>Leaderboard</h2>
-	</div> <!-- Closes Right Side Bar -->
+		<div id="rightSideBar"> <!-- Right Side Bar -->
+			<h2>Leaderboard</h2>
+		</div> <!-- Closes Right Side Bar -->
 	</div> <!-- Closes Main Content-->
+	
+	<div id="pictures"> <!-- Changeable Pictures based on category -->
+		<label id="title"></label><br>
+		<div id="animals"> <!-- All Pictures of Animals -->
+			<img id="dog" src="images/dog.jpg" alt="Image Unvailable"></img>
+			<img id="cat" src="images/cat.png" alt="Image Unvailable"></img>
+		</div>
+		
+		<div id="cars"> <!-- All Pictures of Cars -->
+			<img id="bmw" src="images/bmw.jpg" alt="Image Unvailable"></img>
+			<img id="" src="images/" alt="Image Unvailable"></img>
+		</div>
+		
+		<div id="scenery"> <!-- All Pictures of Scenery -->
+			<img id="" src="images/" alt="Image Unvailable"></img>
+			<img id="" src="images/" alt="Image Unvailable"></img>
+		</div>
+		
+		<div id="custom"> <!-- All Custom Pictures -->
+			<img id="" src="images/" alt="Image Unvailable"></img>
+		</div>
+	</div> <!-- Closes Pictures -->
 	
 	<footer>
 		Website Created by Ryan Simms <br>
