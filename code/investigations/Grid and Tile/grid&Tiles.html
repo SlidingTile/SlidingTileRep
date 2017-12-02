@@ -3,16 +3,13 @@
     <head>
         <script src="jquery-3.2.1.js"></script>
         <link rel=stylesheet src="stylesheet2.css"/>
- 
-    
     </head>
     
-    
-    
+
     <body>
        <canvas id="canvas" style="border : 1px solid black;" onclick="checkMouse()"></canvas>
         <div style="display: none">
-        <img id="source" onload="createTiles()" src="image.jpg" width="600" height="600">
+        <img id="source" onload="createTiles()" src="image.jpg" width="600" height="600"> <!--When image is loaded run createTiles() -->
         </div>
     </body>
 
@@ -28,7 +25,7 @@
     canvas.height = canvSize;
     
     
-    var cells = 3;
+    var cells = 2;  //How many cells in a row/ column - Change this variable to change difficulty
     var cellSize = canvSize/cells;
     var rows = cells;
     var columns = cells;
@@ -38,6 +35,8 @@
     
     var emptySquare = new Tile(cells-1, cells-1, null);
     
+    
+    //Initialize the 2D array and fill it with 'null'
     createEmptyBoard();
     function createEmptyBoard(){
         board = [];
@@ -50,14 +49,15 @@
             board[i] = row;
         }
     }
+    //Get the position of the mouse when it updates
     function onMouseUpdate(e){
     var rect = canvas.getBoundingClientRect();
     mouseX = e.pageX - rect.left;
     mouseY = e.pageY - rect.top;
     }
+    
+    //Check which tile the mouse has clicked on
     function checkMouse(){
-        //console.log(mouseX + " " + mouseY);
-        //console.log(board[3][0].x);
         for(var x = 0; x < columns; x++){
            for(var y = 0; y < rows; y++){
                 if(y == columns-1 && x == rows-1){
@@ -69,43 +69,38 @@
                            if(mouseY > board[x][y].y){
                                if(mouseY < board[x][y].y + cellSize) {
                                     checkPosition(board[x][y]);                         
-                                   }
-                                   
-                                   //console.log(board[x][y]);
-                                    //console.log(x + " " + y);
-                                   
+                                   }                                   
                                 }
                            }
                        }
-                  }
-                   
+                  }  
                }    
            }
        }
     function checkPosition(Tile){
-        if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){
-            emptySquare.x = Tile.x;
+        if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Right
+            emptySquare.x = Tile.x; 
             Tile.x += cellSize;
             updateTiles();
         }
-        else if((Tile.x - cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){
+        else if((Tile.x - cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Left
             emptySquare.x = Tile.x;
             Tile.x -= cellSize;
             updateTiles();
         }
-        else if((Tile.y + cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){
+        else if((Tile.y + cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){ //Move Current Tile Up
             emptySquare.y = Tile.y;
             Tile.y += cellSize;
             updateTiles();
         }
-        else if((Tile.y - cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){
+        else if((Tile.y - cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){ //Move Current Tile Down
             emptySquare.y = Tile.y;
             Tile.y -= cellSize;
             updateTiles();
         }
     }
     
-    function updateTiles(){
+    function updateTiles(){ // Draw tiles/ update their position
         canvas.width += 0;
               for(var x = 0; x < columns; x++){
            for(var y = 0; y < rows; y++){
@@ -120,7 +115,7 @@
     
 }
     
-    function createTiles(){
+    function createTiles(){ //Fill the array with tiles and their image.
         
        for(var x = 0; x < columns; x++){
            for(var y = 0; y < rows; y++){
@@ -133,6 +128,8 @@
            }
        }
     }
+    
+    //Tile Class
     function Tile(i, j, image){
         this.i = i;
         this.j = j;
