@@ -1,7 +1,7 @@
 <html>
     
     <head>
-        <script src="jquery-3.2.1.js"></script>
+        <!--<script src="jquery-3.2.1.js"></script>-->
         <link rel=stylesheet src="stylesheet2.css"/>
     </head>
     
@@ -20,12 +20,14 @@
     var ctx = canvas.getContext('2d');
     var image = document.getElementById('source');
     document.addEventListener('mousemove', onMouseUpdate, false);
+    document.addEventListener('keydown', keyInput);
+    
     var canvSize = 600; // pixels
     canvas.width = canvSize;
     canvas.height = canvSize;
     
     
-    var cells = 2;  //How many cells in a row/ column - Change this variable to change difficulty
+    var cells = 3;  //How many cells in a row/ column - Change this variable to change difficulty
     var cellSize = canvSize/cells;
     var rows = cells;
     var columns = cells;
@@ -49,6 +51,15 @@
             board[i] = row;
         }
     }
+    function randomize(){
+        for(var i = 0; i < 1000; i++){
+            var x = Math.floor(Math.random() * (cells));
+            var y = Math.floor(Math.random() * (cells));
+            if(x != 2 || y != 2){
+                checkPosition(board[x][y]);
+            }
+        }
+    }
     //Get the position of the mouse when it updates
     function onMouseUpdate(e){
     var rect = canvas.getBoundingClientRect();
@@ -68,7 +79,7 @@
                        if(mouseX < board[x][y].x + cellSize){
                            if(mouseY > board[x][y].y){
                                if(mouseY < board[x][y].y + cellSize) {
-                                    checkPosition(board[x][y]);                         
+                                    checkPosition(board[x][y]);
                                    }                                   
                                 }
                            }
@@ -77,6 +88,43 @@
                }    
            }
        }
+     function checkKeyboard(o, p){
+        for(var x = 0; x < columns; x++){
+           for(var y = 0; y < rows; y++){
+                if(y == columns-1 && x == rows-1){
+                     
+                   }
+               else{
+                   if(board[x][y].x == o){
+                       if(board[x][y].y == p){
+                           checkPosition(board[x][y]);
+                       }
+                   }
+                   
+               }
+           }
+        }
+                   
+       }
+    function keyInput(){
+        switch(event.key){
+            case "ArrowUp":
+                checkKeyboard(emptySquare.x, emptySquare.y + cellSize);
+            break;
+            case "ArrowDown":
+                checkKeyboard(emptySquare.x, emptySquare.y - cellSize);
+            break;
+            case "ArrowLeft":
+                checkKeyboard(emptySquare.x + cellSize, emptySquare.y);
+            break;
+            case "ArrowRight":
+                checkKeyboard(emptySquare.x - cellSize, emptySquare.y);
+            break;
+            case "r":
+                randomize();
+            break;
+        }
+    }
     function checkPosition(Tile){
         if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Right
             emptySquare.x = Tile.x; 
@@ -127,7 +175,9 @@
                }
            }
        }
+        
     }
+    
     
     //Tile Class
     function Tile(i, j, image){
