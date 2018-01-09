@@ -105,19 +105,10 @@ a:hover {
     background-color: #1C1C1C;
 }
 
-#pictures img {
+img {
 	max-width: 300px;
 	max-height: 300px;
 	display: inline;
-}
-	
-/*Images*/
-img {
-	max-width: 100%;
-	max-height: 100%;
-	margin: 0 auto;
-	text-align: center;
-	display: block;
 }
 
 canvas {
