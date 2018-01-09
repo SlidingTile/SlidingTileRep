@@ -148,6 +148,46 @@ input {
     padding: 5px;
 }
 
+#reset {
+	position: relative;
+	left: 250px;
+	top: -300px;
+	border: 0;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: white;
+    background-color: #0084b4;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+    margin-bottom: 20px;
+}
+
+#random {
+	position: relative;
+	left: 250px;
+	top: -300px;
+	border: 0;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: white;
+    background-color: #0084b4;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+    margin-bottom: 20px;
+}
+
 #start {
 	position: relative;
 	left: 250px;
