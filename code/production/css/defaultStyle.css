@@ -1,0 +1,534 @@
+/* ----------- Mobile & Tablet Devices ----------- */
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/*webpage fades in*/
+html {
+    animation: fadein 2s;
+    position: relative;
+    min-height: 100%;
+    overflow-y: scroll;
+}
+
+/*animation*/
+@keyframes fadein {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes color {
+    from { color: inherit; }
+    to { color: #3CB371; }
+}
+	
+/*main colour settings for page*/
+body {
+    font-family: 'Roboto';
+    font-size: 22px;
+	color: #1C1C1C;
+	background-color: #FFF;
+	margin: 0 0 100px;
+    padding: 25px;
+}
+	
+body.dark {
+    color: #FFF;
+    background-color: black;
+}
+
+/*Navigation*/
+nav {
+	background-color: #D8D8D8;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+	
+nav.dark {
+    background-color: #1C1C1C;
+}
+
+/*Main heading*/
+h1 {
+    position: relative;
+    margin: 0 auto;
+    font-size: 60px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+ol li {
+    display: inline;
+}
+
+/*Links*/
+a {
+	color: #1C1C1C;
+    text-decoration: none;
+}
+
+a.dark {
+    color: #FFF;
+}
+
+a:hover {
+    animation: color .5s;
+    color: #3CB371;
+}
+
+/*Light Switches*/
+#lightSwitchOn {
+    display: inline;
+    position: absolute;
+    top: 40px;
+    right: 30px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	font-size: 40px;
+}
+	
+#lightSwitchOn.dark {
+    display: none;
+}
+	
+#lightSwitchOff {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 30px;
+	margin-right: 10px;
+	font-size: 40px;
+}
+
+#lightSwitchOff.dark {
+    display: inline;
+}
+
+/*Main Body*/
+#mainContent {
+	padding: 10px;
+	background-color: #D8D8D8;
+	margin-top: 10px;
+}
+
+#mainContent.dark {
+    background-color: #1C1C1C;
+}
+	
+#mainContent img {
+    display: inline;
+	max-width: 375px;
+	max-height: 375px;
+	float: right;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+	
+/*Images*/
+img {
+    border: solid 0px;
+    border-radius: 5px;
+}
+	
+label {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+	
+textarea {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: solid 1px #1C1C1C;
+    border-radius: 2px;
+    resize: none;
+}
+	
+input {
+    border: solid 1px #1C1C1C;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+#enter {
+    margin-top: 50px;
+    width: 90%;
+}
+	
+#logo {
+	border: 0px;
+    display: inline;
+    position: absolute;
+    top: 40px;
+    left: 30px;
+	margin-left: 10px;
+	font-size: 40px;
+	width: 100px;
+	height: 100px;
+}
+
+/* Login Form CSS */
+
+a.index {
+  text-decoration: none;
+  color: #1ab188;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+a.index:hover {
+  color: #179b77;
+}
+
+.form {
+  padding: 40px;
+  max-width: 700px;
+  margin: 40px auto;
+  border-radius: 4px;
+}
+
+.tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: rgba(160, 179, 176, 0.25);
+  color: #a0b3b0;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+.tab-group li a:hover {
+  background: #179b77;
+  color: #ffffff;
+}
+
+.tab-group .active a {
+  background: #1ab188;
+  color: #ffffff;
+}
+
+.tab-content > div:last-child {
+  display: none;
+}
+
+span {
+    color: #1ab188;
+    font-weight: bold;
+}
+
+div.info {
+    color: pink;
+    display: box;
+    text-align: center;
+    padding: 5px;
+    margin-top: -20px;
+    margin-bottom: 15px;
+    border: 1px solid red;
+    background: #66131c;
+}
+
+label.req {
+  margin: 2px;
+  color: #1ab188;
+}
+
+label.active.req {
+  opacity: 0;
+}
+
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.top-row > div {
+  float: left;
+  width: 46%;
+  margin-right: 8%;
+}
+
+.top-row > div:last-child {
+  margin: 0;
+}
+
+.button {
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background: #1ab188;
+    color: #ffffff;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+}
+
+.button:hover, .button:focus {
+    background: #179b77;
+}
+
+.button-block {
+    display: block;
+    width: 100%;
+}
+
+.forgot {
+    margin-top: -20px;
+    text-align: right;
+}
+
+label.index {
+    text-align: center;
+    margin: 0px 0px 50px 0px;
+}
+
+input.index, textarea.index {
+    font-size: 22px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+    border: 1px solid #a0b3b0;
+    border-radius: 0;
+    -webkit-transition: border-color .25s ease, box-shadow .25s ease;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+input.index:focus, textarea.index:focus {
+    outline: 0;
+    border-color: #1ab188;
+}
+
+textarea.index {
+    border: 2px solid #a0b3b0;
+    resize: vertical;
+}
+
+/* Chat Room CSS */
+
+#chat-area {
+    width: 750px;
+    height: 500px;
+    overflow: auto;
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#chat-area span {
+    color: #1ab188;
+    background: black;
+    padding: 4px 8px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 8px;
+    margin: 0 5px 0 0;
+}
+
+#chat-area p {
+    color: black;
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+#name-area {
+    margin-top: 10px;
+}   
+
+#name-area span {
+    color: #1ab188;
+}
+
+#sendie {
+    border: 1px solid black;
+    width: 400px;
+    height: 100px;
+    padding: 10px;
+}
+
+.send-button {
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: white;
+    background-color: #1ab188;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+    margin-top: 15px;
+    vertical-align: top;
+}
+
+/* --------------------- */
+
+#question, #answers {
+    width: 100%;
+    border: solid 1px #1C1C1C;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#question.dark, #answers.dark {
+    border: solid 1px white;
+}
+
+.twitter-button {
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: white;
+    background-color: #0084b4;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+    margin-bottom: 20px;
+}
+
+.facebook-button {
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: white;
+    background-color: #3b5998;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-appearance: none;
+    margin-bottom: 20px;
+}
+
+video {
+	max-width: 80%;
+	margin: 0 auto;
+	display: block;
+}
+
+table {
+    margin-bottom: 100px;
+}
+	
+/*Footer*/
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+	
+#cookies {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 8%;
+    width: 100%;
+    background-color: #D8D8D8;
+    padding-left: 30px;
+}
+
+#cookies.dark {
+    background-color: #1C1C1C;
+}
+
+/* ----------- 720p HD Screens ----------- */
+@media screen and (min-device-width: 1280px) and (min-device-height: 720px) {
+    #enter {
+        width: 30%;
+    }
+    
+    #logo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    #lightSwitchOn, #lightSwitchOff {
+        top: 70px;
+    }
+}
+
+/* ----------- Screens (1280 x 768) ----------- */
+@media screen and (min-device-height: 768px) {
+    #enter {
+        width: 35%;
+    }
+}
+
+/* ----------- Screens (1280 x 1024) ----------- */
+@media screen and (min-device-height: 1024px) {
+    #enter {
+        width: 55%;
+    }
+}
+
+/* ----------- Full HD Screens ----------- */
+@media screen and (min-device-width: 1920px) {
+    #enter {
+        width: 38%;
+    }
+    
+    #logo {
+        width: 150px;
+        height: 150px;
+    }
+    
+    #lightSwitchOn, #lightSwitchOff {
+        top: 70px;
+    }
+}
