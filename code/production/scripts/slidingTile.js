@@ -135,6 +135,7 @@ function handleDocumentLoad()
 	var ctx = canvas.getContext('2d');
 	var image = document.getElementById('source');
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
+	document.addEventListener('keydown', keyInput);
 	canvas.addEventListener('click', checkMouse);
 	image.addEventListener('load', createTiles);
 	
