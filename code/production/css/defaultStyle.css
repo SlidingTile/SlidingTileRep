@@ -58,17 +58,6 @@ h1 {
 	text-align: center;
 }
 
-ol {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-ol li {
-    display: inline;
-}
-
 /*Links*/
 a {
 	color: #1C1C1C;
@@ -123,42 +112,6 @@ a:hover {
     background-color: #1C1C1C;
 }
 	
-#mainContent img {
-    display: inline;
-	max-width: 375px;
-	max-height: 375px;
-	float: right;
-	margin-right: 10px;
-	margin-left: 10px;
-}
-
-#leftSideBar {
-  display: flex;
-  height: 150px;
-  width: 32%;
-  background: #353535;
-  margin-top: 20px;
-
-}
-
-#middle {
-  display: flex;
-  position: relative;
-  height: 150px;
-  width: 32%;
-  background: #353535;
-  margin-top: 20px;
-}
-
-#rightSideBar {
-  display: flex;
-  position: relative;
-  height: 150px;
-  width: 32%;
-  background: #353535;
-  margin-top: 20px;
-}
-	
 /*Images*/
 img {
 	max-width: 100%;
@@ -170,12 +123,6 @@ img {
 
 canvas {
 	border: solid 1px black;
-}
-	
-label {
-    display: block;
-    margin-bottom: 10px;
-    margin-top: 10px;
 }
 	
 textarea {
