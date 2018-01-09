@@ -148,9 +148,10 @@ input {
     padding: 5px;
 }
 
-#enter {
-    margin-top: 50px;
-    width: 90%;
+#start {
+	position: relative;
+	left: 250px;
+	top: -300px;
 }
 	
 #logo {
