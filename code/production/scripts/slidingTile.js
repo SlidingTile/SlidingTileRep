@@ -137,11 +137,13 @@ function handleDocumentLoad()
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	canvas.addEventListener('click', checkMouse);
 	image.addEventListener('load', createTiles);
-	var canvSize = 600; // pixels
-	canvas.width = canvSize;
-	canvas.height = canvSize;
+	
+    var canvSize = 600; // pixels
+    canvas.width = canvSize;
+    canvas.height = canvSize;
     
-	var cells = 3;
+    
+    var cells = 3;  //How many cells in a row/ column - Change this variable to change difficulty
     var cellSize = canvSize/cells;
     var rows = cells;
     var columns = cells;
@@ -151,131 +153,151 @@ function handleDocumentLoad()
     
     var emptySquare = new Tile(cells-1, cells-1, null);
     
+    
+    //Initialize the 2D array and fill it with 'null'
     createEmptyBoard();
-	
-    function createEmptyBoard()
-	{
-		board = [];
-		board.length = rows;
-		for(var i = 0; i < rows; i++)
-		{
-			var row = [];
-			for( var j = 0; j < columns; j++)
-			{
-				row.push(null);
-			}
-				board[i] = row;
-		}
-	}
-	
-	function onMouseUpdate(e)
-	{
-		var rect = canvas.getBoundingClientRect();
-		mouseX = e.pageX - rect.left;
-		mouseY = e.pageY - rect.top;
-	}
-	
-    function checkMouse()
-	{
-		for(var x = 0; x < columns; x++)
-		{
-			for(var y = 0; y < rows; y++)
-			{
-				if(y == columns-1 && x == rows-1)
-				{
-					
-				}
-				else
-				{
-					if(mouseX > board[x][y].x)
-					{
-						if(mouseX < board[x][y].x + cellSize)
-						{
-							if(mouseY > board[x][y].y)
-							{
-							if(mouseY < board[x][y].y + cellSize)
-								{
-									checkPosition(board[x][y]);
-								}
-                            }
-						}
-					}
-				}
-			}
-		}
-	}
-	   
-    function checkPosition(Tile)
-	{
-		var x = 0;
-        var y = 0;
-        if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y))
-		{
-            emptySquare.x = Tile.x;
+    function createEmptyBoard(){
+        board = [];
+        board.length = rows;
+        for(var i = 0; i < rows; i++){
+            var row = [];
+            for( var j = 0; j < columns; j++){
+                row.push(null);
+            }
+            board[i] = row;
+        }
+    }
+    function randomize(){
+        for(var i = 0; i < 1000; i++){
+            var x = Math.floor(Math.random() * (cells));
+            var y = Math.floor(Math.random() * (cells));
+            if(x != 2 || y != 2){
+                checkPosition(board[x][y]);
+            }
+        }
+    }
+    //Get the position of the mouse when it updates
+    function onMouseUpdate(e){
+    var rect = canvas.getBoundingClientRect();
+    mouseX = e.pageX - rect.left;
+    mouseY = e.pageY - rect.top;
+    }
+    
+    //Check which tile the mouse has clicked on
+    function checkMouse(){
+        for(var x = 0; x < columns; x++){
+           for(var y = 0; y < rows; y++){
+                if(y == columns-1 && x == rows-1){
+                     
+                   }
+               else{
+                   if(mouseX > board[x][y].x){
+                       if(mouseX < board[x][y].x + cellSize){
+                           if(mouseY > board[x][y].y){
+                               if(mouseY < board[x][y].y + cellSize) {
+                                    checkPosition(board[x][y]);
+                                   }                                   
+                                }
+                           }
+                       }
+                  }  
+               }    
+           }
+       }
+     function checkKeyboard(o, p){
+        for(var x = 0; x < columns; x++){
+           for(var y = 0; y < rows; y++){
+                if(y == columns-1 && x == rows-1){
+                     
+                   }
+               else{
+                   if(board[x][y].x == o){
+                       if(board[x][y].y == p){
+                           checkPosition(board[x][y]);
+                       }
+                   }
+                   
+               }
+           }
+        }
+                   
+       }
+    function keyInput(){
+        switch(event.key){
+            case "ArrowUp":
+                checkKeyboard(emptySquare.x, emptySquare.y + cellSize);
+            break;
+            case "ArrowDown":
+                checkKeyboard(emptySquare.x, emptySquare.y - cellSize);
+            break;
+            case "ArrowLeft":
+                checkKeyboard(emptySquare.x + cellSize, emptySquare.y);
+            break;
+            case "ArrowRight":
+                checkKeyboard(emptySquare.x - cellSize, emptySquare.y);
+            break;
+            case "r":
+                randomize();
+            break;
+        }
+    }
+    function checkPosition(Tile){
+        if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Right
+            emptySquare.x = Tile.x; 
             Tile.x += cellSize;
             updateTiles();
         }
-        else if((Tile.x - cellSize == emptySquare.x) && (Tile.y == emptySquare.y))
-		{
+        else if((Tile.x - cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Left
             emptySquare.x = Tile.x;
             Tile.x -= cellSize;
             updateTiles();
         }
-        else if((Tile.y + cellSize == emptySquare.y) && (Tile.x == emptySquare.x))
-		{
+        else if((Tile.y + cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){ //Move Current Tile Up
             emptySquare.y = Tile.y;
             Tile.y += cellSize;
             updateTiles();
         }
-        else if((Tile.y - cellSize == emptySquare.y) && (Tile.x == emptySquare.x))
-		{
+        else if((Tile.y - cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){ //Move Current Tile Down
             emptySquare.y = Tile.y;
             Tile.y -= cellSize;
             updateTiles();
         }
     }
     
-    function updateTiles()
-	{
-		canvas.width += 0;
-		for(var x = 0; x < columns; x++)
-		{
-			for(var y = 0; y < rows; y++)
-			{
-				if(y == columns-1 && x == rows-1)
-				{
-					
-				}
-				else
-				{
-					board[y][x].drawTiles();
-				}
-			}
-		}
+    function updateTiles(){ // Draw tiles/ update their position
+        canvas.width += 0;
+              for(var x = 0; x < columns; x++){
+           for(var y = 0; y < rows; y++){
+                   if(y == columns-1 && x == rows-1){
+                     
+                   }
+               else{
+                    board[y][x].drawTiles();
+               }
+           }
+       }
+    
+}
+    
+    function createTiles(){ //Fill the array with tiles and their image.
+        
+       for(var x = 0; x < columns; x++){
+           for(var y = 0; y < rows; y++){
+               
+                if(y == columns-1 && x == rows-1){}
+               else{
+                   board[y][x] = new Tile(x, y, image);
+                   board[y][x].drawTiles();
+               }
+           }
+       }
+        
     }
     
-    function createTiles()
-	{
-		for(var x = 0; x < columns; x++)
-		{
-			for(var y = 0; y < rows; y++)
-			{
-				if(y == columns-1 && x == rows-1)
-				{
-					
-				}
-				else
-				{
-					board[y][x] = new Tile(x, y, image);
-					board[y][x].drawTiles();
-				}
-			}
-		}
-	}
-	
-    function Tile(i, j, image)
-	{
-		this.i = i;
+    
+    //Tile Class
+    function Tile(i, j, image){
+        this.i = i;
         this.j = j;
         this.x = i * cellSize;
         this.y = j * cellSize;
@@ -285,10 +307,10 @@ function handleDocumentLoad()
         this.image = image;
         
     
-        Tile.prototype.drawTiles = function()
-		{
-			ctx.strokeRect(this.x, this.y, this.size, this.size);
+        Tile.prototype.drawTiles = function(){
+       
+            ctx.strokeRect(this.x, this.y, this.size, this.size);
             ctx.drawImage(this.image, this.a , this.b,this.size, this.size, this.x, this.y, this.size, this.size);
         };
+        
     }
-}
