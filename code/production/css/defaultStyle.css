@@ -105,6 +105,10 @@ a:hover {
     background-color: #1C1C1C;
 }
 
+#pictures {
+	text-align: center;
+}
+
 img {
 	max-width: 300px;
 	max-height: 300px;
