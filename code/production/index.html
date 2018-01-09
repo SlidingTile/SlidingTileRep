@@ -19,89 +19,87 @@
 	<body>
 	<script src="scripts/slidingTile.js"></script> <!-- Loads Script -->
 	
-	<header>
-		<nav id="nav">
-			<h1>Sliding Tile Game</h1>
-			<img alt="Light On" id="lightSwitchOn" title="Toggle Nightmode On" src="images/light-on.png"></img>
-			<img alt="Light Off" id="lightSwitchOff" title="Toggle Nightmode Off" src="images/light-off.png"></img>
+	<nav id="nav">
+		<h1>Sliding Tile Game</h1>
+		<img alt="Light On" id="lightSwitchOn" title="Toggle Nightmode On" src="images/light-on.png"></img>
+		<img alt="Light Off" id="lightSwitchOff" title="Toggle Nightmode Off" src="images/light-off.png"></img>
+	</div>
+	<div id="mainContent">
+		<div id="leftSideBar">
+			<h2>Select Category:</h2>
+			<select id="categories">
+				<option value="default" selected>Select a Category</option>
+				<option value="Animals">Animals</option>
+				<option value="Cars">Cars</option>
+				<option value="Scenery">Scenery</option>
+				<option value="Custom">Custom</option>
+			</select>
+			<h2>Select Difficulty:</h2>
+			<p id="easy">Easy</p>
+			<p id="medium">Medium</p>
+			<p id="hard">Hard</p>
+			<button id="reset">Reset</button><br>
+			<button>Randomise</button>
+			<p>Timer:</p>
+			<label id="minutes">00</label>:<label id="seconds">00</label><br>
 		</div>
-	</header> <!--Closes Header -->
-		<div id="mainContent">
-			<div id="leftSideBar">
-				<h2>Select Category:</h2>
-				<select id="categories">
-					<option value="default" selected>Select a Category</option>
-					<option value="Animals">Animals</option>
-					<option value="Cars">Cars</option>
-					<option value="Scenery">Scenery</option>
-					<option value="Custom">Custom</option>
-				</select>
-				<h2>Select Difficulty:</h2>
-				<p id="easy">Easy</p>
-				<p id="medium">Medium</p>
-				<p id="hard">Hard</p>
-				<button id="reset">Reset</button><br>
-				<button>Randomise</button>
-				<p>Timer:</p>
-				<label id="minutes">00</label>:<label id="seconds">00</label><br>
-			</div>
 	
-			<div id="middle">
-				<canvas id="game" width="600px" height="600px">Cavas is not available on your browser</canvas><br>
-				<button id="start">Start</button>
-				<div style="display: none"> <!-- Stops image loading on page -->
-						<img id="source" src="images/italy.jpg" alt="Image Unvailable">
-				</div> <!-- Closes image div -->
-			</div>
+		<div id="middle">
+			<canvas id="game" width="600px" height="600px">Cavas is not available on your browser</canvas><br>
+			<button id="start">Start</button>
+			<div style="display: none"> <!-- Stops image loading on page -->
+					<img id="source" src="images/italy.jpg" alt="Image Unvailable">
+			</div> <!-- Closes image div -->
+		</div>
 
-			<div id="rightSideBar">
-				<h2>Leaderboard</h2>
-				<p>Player 1</p>
-				<p>Player 2</p>
-				<p>Player 3</p>
-				<p>Player 4</p>
-				<p>Player 5</p>
-				<p>Player 6</p>
-				<p>Player 7</p>
-				<p>Player 8</p>
-				<p>Player 9</p>
-				<p>Player 10</p>
-			</div><br>
+		<div id="rightSideBar">
+			<h2>Leaderboard</h2>
+			<p>Player 1</p>
+			<p>Player 2</p>
+			<p>Player 3</p>
+			<p>Player 4</p>
+			<p>Player 5</p>
+			<p>Player 6</p>
+			<p>Player 7</p>
+			<p>Player 8</p>
+			<p>Player 9</p>
+			<p>Player 10</p>
+		</div><br>
 	
-	<div id="pictures"> <!-- Changeable Pictures based on category -->
-		<h2>Categories</h2>
-		<label id="title"></label><br>
-		<div id="animals"> <!-- All Pictures of Animals -->
-			<img id="dog" src="images/dog.jpg" alt="Image Unvailable"></img>
-			<img id="cat" src="images/cat.png" alt="Image Unvailable"></img>
-			<img id="bird" src="images/bird.jpg" alt="Image Unvailable"></img>
-			<img id="cow" src="images/cow.jpg" alt="Image Unvailable"></img>
-			<img id="horse" src="images/horse.jpg" alt="Image Unvailable"></img>
-		</div>
+		<div id="pictures"> <!-- Changeable Pictures based on category -->
+			<h2>Categories</h2>
+			<label id="title"></label><br>
+			<div id="animals"> <!-- All Pictures of Animals -->
+				<img id="dog" src="images/dog.jpg" alt="Image Unvailable"></img>
+				<img id="cat" src="images/cat.png" alt="Image Unvailable"></img>
+				<img id="bird" src="images/bird.jpg" alt="Image Unvailable"></img>
+				<img id="cow" src="images/cow.jpg" alt="Image Unvailable"></img>
+				<img id="horse" src="images/horse.jpg" alt="Image Unvailable"></img>
+			</div>
 		
-		<div id="cars"> <!-- All Pictures of Cars -->
-			<img id="bmw" src="images/bmw.jpg" alt="Image Unvailable"></img>
-			<img id="bugatti" src="images/bugatti.jpg" alt="Image Unvailable"></img>
-			<img id="audi" src="images/audi.jpg" alt="Image Unvailable"></img>
-			<img id="ferrari" src="images/ferrari.jpg" alt="Image Unvailable"></img>
-			<img id="mercedes" src="images/mercedes.jpg" alt="Image Unvailable"></img>
-		</div>
+			<div id="cars"> <!-- All Pictures of Cars -->
+				<img id="bmw" src="images/bmw.jpg" alt="Image Unvailable"></img>
+				<img id="bugatti" src="images/bugatti.jpg" alt="Image Unvailable"></img>
+				<img id="audi" src="images/audi.jpg" alt="Image Unvailable"></img>
+				<img id="ferrari" src="images/ferrari.jpg" alt="Image Unvailable"></img>
+				<img id="mercedes" src="images/mercedes.jpg" alt="Image Unvailable"></img>
+			</div>
 		
-		<div id="scenery"> <!-- All Pictures of Scenery -->
-			<img id="italy" src="images/italy.jpg" alt="Image Unvailable"></img>
-			<img id="newYork" src="images/new york.jpg" alt="Image Unvailable"></img>
-			<img id="london" src="images/london.jpg" alt="Image Unvailable"></img>
-			<img id="paris" src="images/paris.jpg" alt="Image Unvailable"></img>
-			<img id="dubai" src="images/dubai.jpg" alt="Image Unvailable"></img>
-		</div>
+			<div id="scenery"> <!-- All Pictures of Scenery -->
+				<img id="italy" src="images/italy.jpg" alt="Image Unvailable"></img>
+				<img id="newYork" src="images/new york.jpg" alt="Image Unvailable"></img>
+				<img id="london" src="images/london.jpg" alt="Image Unvailable"></img>
+				<img id="paris" src="images/paris.jpg" alt="Image Unvailable"></img>
+				<img id="dubai" src="images/dubai.jpg" alt="Image Unvailable"></img>
+			</div>
 		
-		<div id="custom"> <!-- All Custom Pictures -->
-			<form method="post" enctype="multipart/form-data">
-				<input type="file" name="fileToUpload" id="fileToUpload"><br>
-				<input type="submit" value="Upload" name="submit">
-			</form>
-		</div>
-	</div> <!-- Closes Pictures -->
-</div>
+			<div id="custom"> <!-- All Custom Pictures -->
+				<form method="post" enctype="multipart/form-data">
+					<input type="file" name="fileToUpload" id="fileToUpload"><br>
+					<input type="submit" value="Upload" name="submit">
+				</form>
+			</div>
+		</div> <!-- Closes Pictures -->
+	</div>
 </body>
 </html>
