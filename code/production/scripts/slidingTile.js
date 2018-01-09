@@ -134,10 +134,13 @@ function handleDocumentLoad()
 	var canvas = document.getElementById('game');
 	var ctx = canvas.getContext('2d');
 	var image = document.getElementById('source');
+	var random = document.getElementById('random');
+	
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	document.addEventListener('keydown', keyInput);
 	canvas.addEventListener('click', checkMouse);
 	image.addEventListener('load', createTiles);
+	random.addEventListener('click', randomize);
 	
     var canvSize = 600; // pixels
     canvas.width = canvSize;
