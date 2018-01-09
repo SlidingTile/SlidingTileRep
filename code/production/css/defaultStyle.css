@@ -115,9 +115,11 @@ a:hover {
 }
 
 #pictures {
+	width: 100%;
 	text-align: center;
 	border: solid 1px black;
 	padding-bottom: 20px;
+	margin-top: 100px;
 }
 
 img {
