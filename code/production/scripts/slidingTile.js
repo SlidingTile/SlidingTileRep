@@ -242,7 +242,7 @@ function handleDocumentLoad()
                 checkKeyboard(emptySquare.x - cellSize, emptySquare.y);
             break;
             case "r":
-		event.preventDefault();
+		event.key.preventDefault();
                 randomize();
             break;
         }
