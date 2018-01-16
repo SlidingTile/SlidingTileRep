@@ -72,7 +72,7 @@ function handleDocumentLoad()
 	/*Timer Function*/
 	var minutesLabel = document.getElementById("minutes");
 	var secondsLabel = document.getElementById("seconds");
-	start.addEventListener('click', startTimer, randomize, keyInput);
+	start.addEventListener('click', startTimer);
 	var totalSeconds = 0;
 	var time;
 	
@@ -91,6 +91,8 @@ function handleDocumentLoad()
 	
 	function startTimer()
 	{
+		randomize();
+		keyInput();
 		start.style.display = 'none'; //Hides start button
 		time = setInterval(setTime, 1000); //Repeats function every 1000ms or 1 second
 
