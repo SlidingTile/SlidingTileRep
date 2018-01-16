@@ -227,25 +227,21 @@ function handleDocumentLoad()
         }
                    
        }
-    function keyInput(){
-        switch(event.key){
-            case "ArrowUp":
-                checkKeyboard(emptySquare.x, emptySquare.y + cellSize);
-            break;
-            case "ArrowDown":
-                checkKeyboard(emptySquare.x, emptySquare.y - cellSize);
-            break;
-            case "ArrowLeft":
-                checkKeyboard(emptySquare.x + cellSize, emptySquare.y);
-            break;
-            case "ArrowRight":
-                checkKeyboard(emptySquare.x - cellSize, emptySquare.y);
-            break;
-            case "r":
-		preventDefault();
-                randomize();
-            break;
-        }
+		function keyInput() {
+	    document.addEventListener("keyup", function(event) {
+		    event.preventDefault();
+		    if (event.keyCode === 38) {
+			    checkKeyboard(emptySquare.x, emptySquare.y + cellSize);
+		    } else if (event.keyCode === 40) {
+			    checkKeyboard(emptySquare.x, emptySquare.y - cellSize);
+		    } else if (event.keyCode === 37) {
+			    checkKeyboard(emptySquare.x + cellSize, emptySquare.y);
+		    } else if (event.keyCode === 39) {
+			    checkKeyboard(emptySquare.x - cellSize, emptySquare.y);
+		    } else if (event.keyCode === 82) {
+			    randomize();
+		    }
+	    });
     }
     function checkPosition(Tile){
         if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Right
