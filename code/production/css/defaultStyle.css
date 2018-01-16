@@ -110,6 +110,11 @@ a:hover {
 	text-align: center;
 }
 
+#middle {
+	width: 600px;
+	height: 600px;
+}
+
 #rightSideBar {
 	text-align: center;
 }
