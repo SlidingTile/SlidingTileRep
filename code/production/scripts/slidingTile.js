@@ -118,7 +118,7 @@ function handleDocumentLoad()
 		clearInterval(time);
 		start.style.display = 'inline'; //Shows start button
 		game.style.visibility = 'hidden';
-		setTimeout(keyInput());
+		setTimeout(keyInput(), 3600000);
 	}
 	
 /*----------------------------------------------------------------------------------------*/
