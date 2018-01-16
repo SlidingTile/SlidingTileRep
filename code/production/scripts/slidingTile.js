@@ -91,7 +91,7 @@ function handleDocumentLoad()
 	
 	function startTimer()
 	{
-		start.style.display = 'none'; //Hides start button
+		//start.style.display = 'none'; //Hides start button
 		time = setInterval(setTime, 1000); //Repeats function every 1000ms or 1 second
 
 		function setTime()
