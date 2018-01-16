@@ -220,16 +220,20 @@ function handleDocumentLoad()
        }
 		function keyInput() {
 	    document.addEventListener("keyup", function(event) {
-		    event.preventDefault();
 		    if (event.keyCode === 38) {
+			    event.preventDefault();
 			    checkKeyboard(emptySquare.x, emptySquare.y + cellSize);
 		    } else if (event.keyCode === 40) {
+			    event.preventDefault();
 			    checkKeyboard(emptySquare.x, emptySquare.y - cellSize);
 		    } else if (event.keyCode === 37) {
+			    event.preventDefault();
 			    checkKeyboard(emptySquare.x + cellSize, emptySquare.y);
 		    } else if (event.keyCode === 39) {
+			    event.preventDefault();
 			    checkKeyboard(emptySquare.x - cellSize, emptySquare.y);
 		    } else if (event.keyCode === 82) {
+			    event.preventDefault();
 			    randomize();
 		    }
 	    });
