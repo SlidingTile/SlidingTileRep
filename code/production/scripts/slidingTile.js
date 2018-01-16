@@ -72,7 +72,7 @@ function handleDocumentLoad()
 	/*Timer Function*/
 	var minutesLabel = document.getElementById("minutes");
 	var secondsLabel = document.getElementById("seconds");
-	start.addEventListener('click', startTimer);
+	start.addEventListener('click', startTimer, randomize, keyInput);
 	var totalSeconds = 0;
 	var time;
 	
@@ -92,8 +92,6 @@ function handleDocumentLoad()
 	function startTimer()
 	{
 		start.style.display = 'none'; //Hides start button
-		randomize();
-		keyInput();
 		time = setInterval(setTime, 1000); //Repeats function every 1000ms or 1 second
 
 		function setTime()
@@ -118,7 +116,6 @@ function handleDocumentLoad()
 		clearInterval(time);
 		start.style.display = 'inline'; //Shows start button
 		game.style.visibility = 'hidden';
-		setTimeout('keyInput()', 3600000);
 	}
 	
 /*----------------------------------------------------------------------------------------*/
