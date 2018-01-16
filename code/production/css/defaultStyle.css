@@ -111,6 +111,7 @@ a:hover {
 }
 
 #middle {
+	margin-top: 40px;
 	width: 600px;
 	height: 600px;
 }
