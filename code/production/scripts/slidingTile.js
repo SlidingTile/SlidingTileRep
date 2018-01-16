@@ -142,12 +142,7 @@ function handleDocumentLoad()
 	image.addEventListener('load', createTiles);
 	random.addEventListener('click', randomize);
 	window.addEventListener("keydown", function(e) {
-    // space and arrow keys
-    	if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-      	  e.preventDefault();
-	    }
-	}, false);
-	
+
     var canvSize = 600; // pixels
     canvas.width = canvSize;
     canvas.height = canvSize;
