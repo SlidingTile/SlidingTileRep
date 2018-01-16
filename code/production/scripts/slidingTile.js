@@ -93,6 +93,7 @@ function handleDocumentLoad()
 	{
 		start.style.display = 'none'; //Hides start button
 		randomize();
+		keyInput();
 		time = setInterval(setTime, 1000); //Repeats function every 1000ms or 1 second
 
 		function setTime()
@@ -117,6 +118,7 @@ function handleDocumentLoad()
 		clearInterval(time);
 		start.style.display = 'inline'; //Shows start button
 		game.style.visibility = 'hidden';
+		setTimeout(keyInput());
 	}
 	
 /*----------------------------------------------------------------------------------------*/
@@ -131,7 +133,6 @@ function handleDocumentLoad()
 	canvas.addEventListener('click', checkMouse);
 	image.addEventListener('load', createTiles);
 	random.addEventListener('click', randomize);
-	window.addEventListener('load', keyInput);
 	
 	var canvSize = 600; // pixels
     	canvas.width = canvSize;
