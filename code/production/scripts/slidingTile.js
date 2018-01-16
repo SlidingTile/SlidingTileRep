@@ -2,7 +2,6 @@ document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
 function handleDocumentLoad()
 {
-	
 	/* Hides / Unhides Canvas until start */
 	var start = document.getElementById('start');
 	start.addEventListener('click', enableCanvas);
@@ -29,8 +28,7 @@ function handleDocumentLoad()
 	custom.style.display = 'none';
 	
 	function changeCategory() {
-		if (categories.value === 'default')
-		{
+		if (categories.value === 'default') {
 			title.innerHTML = '';
 			animals.style.display = 'none';
 			cars.style.display = 'none';
@@ -133,51 +131,53 @@ function handleDocumentLoad()
 	image.addEventListener('load', createTiles);
 	random.addEventListener('click', randomize);
 	window.addEventListener('load', keyInput);
-
-    var canvSize = 600; // pixels
-    canvas.width = canvSize;
-    canvas.height = canvSize;
+	
+	var canvSize = 600; // pixels
+    	canvas.width = canvSize;
+    	canvas.height = canvSize;
     
     
-    var cells = 3;  //How many cells in a row/ column - Change this variable to change difficulty
-    var cellSize = canvSize/cells;
-    var rows = cells;
-    var columns = cells;
-    var board = [];
-    var mouseX = 0;
-    var mouseY = 0;
+    	var cells = 3;  //How many cells in a row/ column - Change this variable to change difficulty
+    	var cellSize = canvSize/cells;
+    	var rows = cells;
+    	var columns = cells;
+    	var board = [];
+    	var mouseX = 0;
+    	var mouseY = 0;
     
-    var emptySquare = new Tile(cells-1, cells-1, null);
+    	var emptySquare = new Tile(cells-1, cells-1, null);
     
     
-    //Initialize the 2D array and fill it with 'null'
-    createEmptyBoard();
-    function createEmptyBoard(){
-        board = [];
-        board.length = rows;
-        for(var i = 0; i < rows; i++){
-            var row = [];
-            for( var j = 0; j < columns; j++){
-                row.push(null);
-            }
-            board[i] = row;
-        }
-    }
-    function randomize(){
-        for(var i = 0; i < 1000; i++){
-            var x = Math.floor(Math.random() * (cells));
-            var y = Math.floor(Math.random() * (cells));
-            if(x != 2 || y != 2){
-                checkPosition(board[x][y]);
-            }
-        }
-    }
-    //Get the position of the mouse when it updates
-    function onMouseUpdate(e){
-    var rect = canvas.getBoundingClientRect();
-    mouseX = e.pageX - rect.left;
-    mouseY = e.pageY - rect.top;
-    }
+    	//Initialize the 2D array and fill it with 'null'
+    	createEmptyBoard();
+    	function createEmptyBoard() {
+        	board = [];
+        	board.length = rows;
+        	for(var i = 0; i < rows; i++) {
+            		var row = [];
+            		for( var j = 0; j < columns; j++) {
+                		row.push(null);
+            		}
+            	board[i] = row;
+        	}
+    	}
+	
+	function randomize(){
+        	for(var i = 0; i < 1000; i++) {
+            		var x = Math.floor(Math.random() * (cells));
+            		var y = Math.floor(Math.random() * (cells));
+            		if(x != 2 || y != 2) {
+                		checkPosition(board[x][y]);
+            		}
+        	}
+    	}
+	
+    	//Get the position of the mouse when it updates
+    	function onMouseUpdate(e) {
+    		var rect = canvas.getBoundingClientRect();
+    		mouseX = e.pageX - rect.left;
+    		mouseY = e.pageY - rect.top;
+    	}
     
     //Check which tile the mouse has clicked on
     function checkMouse(){
@@ -219,7 +219,7 @@ function handleDocumentLoad()
                    
        }
 		function keyInput() {
-	    document.addEventListener("keyup", function(event) {
+	    document.addEventListener("keydown", function(event) {
 		    if (event.keyCode === 38) {
 			    event.preventDefault();
 			    checkKeyboard(emptySquare.x, emptySquare.y + cellSize);
