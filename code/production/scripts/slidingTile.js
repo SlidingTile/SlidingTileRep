@@ -132,6 +132,7 @@ function handleDocumentLoad()
 	canvas.addEventListener('click', checkMouse);
 	image.addEventListener('load', createTiles);
 	random.addEventListener('click', randomize);
+	window.addEventListener('load', keyInput);
 
     var canvSize = 600; // pixels
     canvas.width = canvSize;
