@@ -20,6 +20,8 @@ function handleDocumentLoad()
 	var cars = document.getElementById('cars');
 	var scenery = document.getElementById('scenery');
 	var custom = document.getElementById('custom');
+	var title = document.getElementById('title');
+	var secondTitle = document.getElementById('secondTitle');
 	categories.addEventListener('change', changeCategory);
 	categories.addEventListener('change', changePictures);
 	animals.style.display = 'none';
@@ -30,12 +32,14 @@ function handleDocumentLoad()
 	function changeCategory() {
 		if (categories.value === 'default') {
 			title.innerHTML = '';
+			secondTitle.innerHTML = 'Select a Category Using The Dropdown Menu';
 			animals.style.display = 'none';
 			cars.style.display = 'none';
 			scenery.style.display = 'none';
 			custom.style.display = 'none';
 		} else {
 			title.innerHTML = categories.value;
+			secondTitle.innerHTML = '';
 		}
 	}
 	
