@@ -92,7 +92,6 @@ function handleDocumentLoad()
 	function startTimer()
 	{
 		randomize();
-		keyInput();
 		start.style.display = 'none'; //Hides start button
 		time = setInterval(setTime, 1000); //Repeats function every 1000ms or 1 second
 
@@ -132,6 +131,7 @@ function handleDocumentLoad()
 	canvas.addEventListener('click', checkMouse);
 	image.addEventListener('load', createTiles);
 	random.addEventListener('click', randomize);
+	document.addEventListener('load', keyInput);
 	
 	var canvSize = 600; // pixels
     	canvas.width = canvSize;
