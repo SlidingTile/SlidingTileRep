@@ -42,28 +42,28 @@ function handleDocumentLoad()
 	function changePictures() {
 		if (categories.value === 'Animals')
 		{
-		animals.style.display = 'inline';
-		cars.style.display = 'none';
-		scenery.style.display = 'none';
-		custom.style.display = 'none';
+			animals.style.display = 'inline';
+			cars.style.display = 'none';
+			scenery.style.display = 'none';
+			custom.style.display = 'none';
 			
 		} else if (categories.value === 'Cars') {
-		animals.style.display = 'none';
-		cars.style.display = 'inline';
-		scenery.style.display = 'none';
-		custom.style.display = 'none';
+			animals.style.display = 'none';
+			cars.style.display = 'inline';
+			scenery.style.display = 'none';
+			custom.style.display = 'none';
 			
 		} else if (categories.value === 'Scenery') {
-		animals.style.display = 'none';
-		cars.style.display = 'none';
-		scenery.style.display = 'inline';
-		custom.style.display = 'none';
+			animals.style.display = 'none';
+			cars.style.display = 'none';
+			scenery.style.display = 'inline';
+			custom.style.display = 'none';
 			
 		} else if (categories.value === 'Custom') {
-		animals.style.display = 'none';
-		cars.style.display = 'none';
-		scenery.style.display = 'none';
-		custom.style.display = 'inline';
+			animals.style.display = 'none';
+			cars.style.display = 'none';
+			scenery.style.display = 'none';
+			custom.style.display = 'inline';
 		}
 	}
 
