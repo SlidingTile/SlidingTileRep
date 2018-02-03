@@ -80,7 +80,7 @@ a:hover {
 }
 	
 #lightSwitchOff {
-    	display: none;
+    	display: inline;
     	position: absolute;
     	top: 40px;
     	right: 30px;
