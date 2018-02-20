@@ -8,13 +8,13 @@ function handleDocumentLoad() {
   if (offSwitch == null) {
       //Do Nothing
   } else {
-      offSwitch.addEventListener('click', lightsOff);
+      offSwitch.addEventListener('click', lightsOn);
   }
   
   if (onSwitch == null) {
       //Do Nothing
   } else {
-      onSwitch.addEventListener('click', lightsOn);
+      onSwitch.addEventListener('click', lightsOff);
   }
 
   function lightsOff() {
