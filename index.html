@@ -1,0 +1,110 @@
+	<head>
+	
+	<meta charset="utf-8"/>
+
+    <title>SoftBricks - Sliding Tile Game</title> <!-- Tab Title -->
+		
+	<link rel="shortcut icon" href="images/SoftBricks.ico"> <!-- Tab Icon -->
+	
+	<link rel="stylesheet" href="css/defaultStyle.css" type="text/css"> <!-- Loads Stylesheet -->
+	<script src="scripts/lightSwitch.js"></script> <!-- Loads LightSwitch Script -->
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto' type='text/css'> <!-- Google Font -->
+
+	</head>
+
+	<body>
+	<audio autoplay id="BMusic" volume="0.1">
+	<source src="sound/Background1.ogg" />
+	</audio>
+	<script src="scripts/slidingTile.js"></script> <!-- Loads Script -->
+	
+	<nav id="nav">
+		<h1>Sliding Tile Game</h1>
+		<img alt="Light On" id="lightSwitchOn" title="Toggle Nightmode On" src="images/light-on.png"/>
+		<img alt="Light Off" id="lightSwitchOff" title="Toggle Nightmode Off" src="images/light-off.png"/>
+	</nav>
+	<div id="mainContent">
+		<div id="leftSideBar">
+			<h2>Select Category:</h2>
+			<select id="categories">
+				<option value="default" selected>Select a Category</option>
+				<option value="Animals">Animals</option>
+				<option value="Cars">Cars</option>
+				<option value="Scenery">Scenery</option>
+				<option value="Custom">Custom</option>
+			</select>
+			<h2>Select Difficulty:</h2>
+			<button id ="Easy">Easy</button>
+			<button id ="Medium">Medium</button>
+			<button id ="Hard">Hard</button><br>
+			<button id="reset">Reset</button><br>
+			<button id="random">Randomise</button>
+			<p>Timer:</p>
+			<label id="minutes">00</label>:<label id="seconds">00</label><br>
+            <p>Moves: </p>
+            <label id="moveCounter">0</label>
+		</div>
+	
+		<div id="middle">
+			<canvas id="game" width="600px" height="600px">Cavas is not available on your browser</canvas><br>
+			<button id="start">Start</button>
+			<div style="display: none"> <!-- Stops image loading on page -->
+					<img id="source" src="images/italy.jpg" alt="Image Unvailable">
+			</div> <!-- Closes image div -->
+		</div>
+
+		<div id="rightSideBar">
+		<button id ="showLeaderboard">Refresh Leaderboards </button>
+		<div id ="leaderboards">
+			<h2>Leaderboard</h2>
+			<p id = "P1">Player 1</p>
+			<div id = "P1S"></div>
+			<p id = "P2">Player 2</p>
+			<div id = "P2S"></div>
+			<p id = "P3">Player 3</p>
+			<div id = "P3S"></div>
+			<p id = "P4">Player 4</p>
+			<div id = "P4S"></div>
+			<p id = "P5">Player 5</p>
+			<div id = "P5S"></div>
+		</div>
+		</div>
+	
+		<div id="pictures"> <!-- Changeable Pictures based on category -->
+			<h2>Categories</h2>
+			<h3 id="secondTitle">Select a Category Using The Dropdown Menu</h3>
+			<label id="title"></label><br>
+			<div id="animals"> <!-- All Pictures of Animals -->
+				<img id="dog" src="images/dog.jpg" alt="Image Unvailable"></img>
+				<img id="cat" src="images/cat.png" alt="Image Unvailable"></img>
+				<img id="bird" src="images/bird.jpg" alt="Image Unvailable"></img>
+				<img id="cow" src="images/cow.jpg" alt="Image Unvailable"></img>
+				<img id="horse" src="images/horse.jpg" alt="Image Unvailable"></img>
+			</div>
+		
+			<div id="cars"> <!-- All Pictures of Cars -->
+				<img id="bmw" src="images/bmw.jpg" alt="Image Unvailable"></img>
+				<img id="bugatti" src="images/bugatti.jpg" alt="Image Unvailable"></img>
+				<img id="audi" src="images/audi.jpg" alt="Image Unvailable"></img>
+				<img id="ferrari" src="images/ferrari.jpg" alt="Image Unvailable"></img>
+				<img id="mercedes" src="images/mercedes.jpg" alt="Image Unvailable"></img>
+			</div>
+		
+			<div id="scenery"> <!-- All Pictures of Scenery -->
+				<img id="italy" src="images/italy.jpg" alt="Image Unvailable"></img>
+				<img id="newYork" src="images/new york.jpg" alt="Image Unvailable"></img>
+				<img id="london" src="images/london.jpg" alt="Image Unvailable"></img>
+				<img id="paris" src="images/paris.jpg" alt="Image Unvailable"></img>
+				<img id="dubai" src="images/dubai.jpg" alt="Image Unvailable"></img>
+			</div>
+		
+			<div id="custom"> <!-- All Custom Pictures -->
+				<form method="post" enctype="multipart/form-data">
+					<input type="file" name="fileToUpload" id="fileToUpload"><br>
+					<input type="submit" value="Upload" name="submit">
+				</form>
+			</div>
+		</div> <!-- Closes Pictures -->
+	</div>
+</body>
+</html>
