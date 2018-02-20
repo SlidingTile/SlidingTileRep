@@ -37,24 +37,6 @@ function handleDocumentLoad() {
         document.getElementById("mainContent").classList.add('dark');
     }
     
-    if (document.getElementById("question") == null) {
-        //Do Nothing
-    } else {
-        document.getElementById("question").classList.add('dark');
-    }
-    
-    if (document.getElementById("answers") == null) {
-        //Do Nothing
-    } else {
-        document.getElementById("answers").classList.add('dark');
-    }
-    
-    if (document.getElementById("cookies") == null) {
-        //Do Nothing
-    } else {
-        document.getElementById("cookies").classList.add('dark');
-    }
-    
     if (document.getElementById("lightSwitchOff") == null) {
         //Do Nothing
     } else {
@@ -87,24 +69,6 @@ function handleDocumentLoad() {
         //Do Nothing
     } else {
         document.getElementById("mainContent").classList.remove('dark');
-    }
-    
-    if (document.getElementById("question") == null) {
-        //Do Nothing
-    } else {
-        document.getElementById("question").classList.remove('dark');
-    }
-    
-    if (document.getElementById("answers") == null) {
-        //Do Nothing
-    } else {
-        document.getElementById("answers").classList.remove('dark');
-    }
-    
-    if (document.getElementById("cookies") == null) {
-        //Do Nothing
-    } else {
-        document.getElementById("cookies").classList.remove('dark');
     }
     
     if (document.getElementById("lightSwitchOff") == null) {
