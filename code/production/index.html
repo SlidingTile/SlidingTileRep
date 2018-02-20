@@ -13,6 +13,9 @@
 	</head>
 
 	<body>
+	<audio autoplay id="BMusic" volume="0.1">
+	<source src="sound/Background1.ogg" />
+	</audio>
 	<script src="scripts/slidingTile.js"></script> <!-- Loads Script -->
 	
 	<nav id="nav">
@@ -31,9 +34,9 @@
 				<option value="Custom">Custom</option>
 			</select>
 			<h2>Select Difficulty:</h2>
-			<p id="easy">Easy</p>
-			<p id="medium">Medium</p>
-			<p id="hard">Hard</p>
+			<button id ="Easy">Easy</button>
+			<button id ="Medium">Medium</button>
+			<button id ="Hard">Hard</button><br>
 			<button id="reset">Reset</button><br>
 			<button id="random">Randomise</button>
 			<p>Timer:</p>
@@ -51,17 +54,20 @@
 		</div>
 
 		<div id="rightSideBar">
+		<button id ="showLeaderboard">Refresh Leaderboards </button>
+		<div id ="leaderboards">
 			<h2>Leaderboard</h2>
-			<p>Player 1</p>
-			<p>Player 2</p>
-			<p>Player 3</p>
-			<p>Player 4</p>
-			<p>Player 5</p>
-			<p>Player 6</p>
-			<p>Player 7</p>
-			<p>Player 8</p>
-			<p>Player 9</p>
-			<p>Player 10</p>
+			<p id = "P1">Player 1</p>
+			<div id = "P1S"></div>
+			<p id = "P2">Player 2</p>
+			<div id = "P2S"></div>
+			<p id = "P3">Player 3</p>
+			<div id = "P3S"></div>
+			<p id = "P4">Player 4</p>
+			<div id = "P4S"></div>
+			<p id = "P5">Player 5</p>
+			<div id = "P5S"></div>
+		</div>
 		</div>
 	
 		<div id="pictures"> <!-- Changeable Pictures based on category -->

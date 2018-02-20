@@ -12,6 +12,19 @@ function handleDocumentLoad()
 	}
 	
 /*----------------------------------------------------------------------------------------*/
+	/* Sound */
+	var clickSound = new Audio('sound/Click.ogg');
+	var backgroundMusic = document.getElementById("BMusic");
+	backgroundMusic.volume = 0.2; //0-1
+	/* Score */
+	var name;
+	var score;
+	
+
+	
+	/* Difficulty */
+	var difficulty = 300;
+	var secondModifier = 1;
 	
 	/* Category pictures */
 	var categories = document.getElementById('categories');
@@ -77,8 +90,10 @@ function handleDocumentLoad()
 	var minutesLabel = document.getElementById("minutes");
 	var secondsLabel = document.getElementById("seconds");
 	start.addEventListener('click', startTimer);
-	var totalSeconds = 0;
+	var totalSeconds = difficulty; // set starting time equal to difficulty (easy = 3 mins / 180 secs)
 	var time;
+	
+	
 	
 	function pad(val) //Takes value of the number of seconds
 	{
@@ -95,18 +110,58 @@ function handleDocumentLoad()
 	
 	function startTimer()
 	{
+		// set new time - refreshes time
+		totalSeconds = difficulty;
+		
 		//randomize();
 		start.style.display = 'none'; //Hides start button
 		time = setInterval(setTime, 1000); //Repeats function every 1000ms or 1 second
 
 		function setTime()
 		{
-			++totalSeconds; //Increases seconds
+		    totalSeconds = totalSeconds - secondModifier;// decrease seconds (Modifier will change depending on win/lose state)
 			secondsLabel.innerHTML = pad(totalSeconds%60);
 			minutesLabel.innerHTML = pad(parseInt(totalSeconds/60)); 
+			
+			// Lose detection
+			if(totalSeconds <= 0)
+			{
+				secondModifier = 0;
+				Lose();
+			}
+			
 		}
 	}
+/*----------------------------------------------------------------------------------------*/
+
+	/*Difficulty Functions - Change values as needed */
 	
+	var hardDifficulty = document.getElementById("Hard"); // Hard button
+	Hard.addEventListener('click', HardDifficulty);
+	
+	var mediumDifficulty = document.getElementById("Medium"); // Medium button
+	Medium.addEventListener('click', MediumDifficulty);
+	
+	var easyDifficulty = document.getElementById("Easy"); // Easy button
+	Easy.addEventListener('click', EasyDifficulty);
+	
+	function EasyDifficulty()
+	{
+		resetAll(); // reset everything
+		difficulty = 300;
+	}
+	function MediumDifficulty()
+	{
+		resetAll(); // reset everything
+		difficulty = 120;
+	}
+	function HardDifficulty()
+	{
+		resetAll(); // reset everything
+		difficulty = 60;
+	}
+	
+
 /*----------------------------------------------------------------------------------------*/
 	
 	/*Reset Function */
@@ -115,6 +170,7 @@ function handleDocumentLoad()
 	
 	function resetAll() //Resets value and stops function
 	{
+		secondModifier = 1;
 		totalSeconds = 0;
 		secondsLabel.innerHTML = pad(totalSeconds%60);
 		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
@@ -123,6 +179,92 @@ function handleDocumentLoad()
 		game.style.visibility = 'hidden';
 	}
 	
+/*----------------------------------------------------------------------------------------*/
+
+
+	/* Losing Function */
+	
+	function Lose()
+	{
+		window.alert("You lost, better luck next time! Maybe lower the difficulty."); // needs a makeover
+		resetAll() // reset everything
+	}
+
+/*----------------------------------------------------------------------------------------*/
+	/* Show Leaderboards */
+	var showLeaders = document.getElementById("showLeaderboard"); // get button for leaderboards
+	showLeaderboard.addEventListener('click', showLeaderboards)
+	
+	function showLeaderboards() // This needs to be called to essentially refresh the scores - Could be used as a refresh button rather than 
+	// hiding the whole leaderboard.
+	{
+		document.getElementById("leaderboards").style = "display: inline-block;";
+		
+		// All the scores & names
+		document.getElementById("P1").innerHTML = localStorage.name1;
+		document.getElementById("P1S").innerHTML = localStorage.score1;
+		
+		document.getElementById("P2").innerHTML = localStorage.name2;
+		document.getElementById("P2S").innerHTML = localStorage.score2;
+		
+		document.getElementById("P3").innerHTML = localStorage.name3;
+		document.getElementById("P3S").innerHTML = localStorage.score3;
+		
+		document.getElementById("P4").innerHTML = localStorage.name4;
+		document.getElementById("P4S").innerHTML = localStorage.score4;
+		
+		document.getElementById("P5").innerHTML = localStorage.name5;
+		document.getElementById("P5S").innerHTML = localStorage.score5;
+	}
+	/* Winning Function */
+	function Win()
+	{
+		/* Score formula (may need a rework) */
+		var FlatScore = 1100;
+		score = (FlatScore - totalSeconds) - moves ;
+		
+		var name = window.prompt("You won! \nPlease enter your name: ");
+		// Using local storage - localName & localScore to check against other scores)
+		localStorage.setItem("localName", name); // set localName = players name this session.
+		localStorage.setItem("localScore", score); // set localScore = players score this session.
+		
+		// Make values 
+		
+		
+		// Check if score beats any of those on the leaderboards.
+		if(localStorage.localScore > localStorage.score1)
+		{
+			localStorage.score1 = localStorage.localScore; // set score to correct place
+			localStorage.name1 = localStorage.localName; // set name to correct place in leaderboard
+		}
+		else if(localStorage.localScore > localStorage.score2)
+		{
+			localStorage.score2 = localStorage.localScore; // set score to correct place
+			localStorage.name2 = localStorage.localName; // set name to correct place in leaderboard
+		}
+		else if(localStorage.localScore > localStorage.score3)
+		{
+			localStorage.score3 = localStorage.localScore; // set score to correct place
+			localStorage.name3 = localStorage.localName; // set name to correct place in leaderboard
+		}
+		else if(localStorage.localScore > localStorage.score4)
+		{
+			localStorage.score4 = localStorage.localScore; // set score to correct place
+			localStorage.name4 = localStorage.localName; // set name to correct place in leaderboard
+		}
+		else if(localStorage.localScore > localStorage.score5)
+		{
+			localStorage.score5 = localStorage.localScore; // set score to correct place
+			localStorage.name5 = localStorage.localName; // set name to correct place in leaderboard
+		}
+		
+		
+		localStorage.setItem("name", name);
+		localStorage.setItem("score", score);
+        completeCounter = 0;
+		secondModifier = 0; // Stop time!
+	}
+
 /*----------------------------------------------------------------------------------------*/
 	
 	/*Sliding Tile Function*/
@@ -329,7 +471,6 @@ function handleDocumentLoad()
                }
            }
        }
-    
 }
     
     function createTiles(){ //Fill the array with tiles and their image.
@@ -344,6 +485,7 @@ function handleDocumentLoad()
        }
     }
 
+	
     function checkComplete(){    
         var completeCounter = 0;
         for(var i = 0; i < cells; i++){
@@ -353,8 +495,8 @@ function handleDocumentLoad()
                         if(board[i][j].j == board[i][j].y/cellSize){
                             completeCounter++;
                             if(completeCounter == 8){
-                                window.prompt("COMPLETED\n PLEASE ENTER YOUR NAME");
-                                completeCounter = 0;
+								Win();
+                                
                             }
                         
                         }
@@ -379,18 +521,22 @@ function handleDocumentLoad()
             if(dir == "down" && Tile.y > initialPosY - cellSize){
                 Tile.y-=moveSpeed;
                 updateTiles();
+				clickSound.play();
             }
             else if(dir == "up" && Tile.y < initialPosY + cellSize){
                 Tile.y+=moveSpeed;
                 updateTiles();
+				clickSound.play();
             }
             else if(dir == "left" && Tile.x > initialPosX - cellSize){
                 Tile.x-=moveSpeed;
                 updateTiles();
+				clickSound.play();
             }
             else if(dir == "right" && Tile.x < initialPosX + cellSize){
                 Tile.x+=moveSpeed;
                 updateTiles();
+				clickSound.play();
             }
             else{
                 clearInterval(id);

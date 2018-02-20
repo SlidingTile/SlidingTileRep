@@ -120,6 +120,10 @@ a:hover {
 	text-align: center;
 }
 
+#leaderboards{
+	text-align: center;
+}
+
 #pictures {
 	width: 100%;
 	text-align: center;
@@ -154,6 +158,57 @@ input {
     	border: solid 1px #1C1C1C;
     	border-radius: 2px;
     	padding: 5px;
+}
+
+#easy{
+	border: 0;
+    	outline: none;
+    	border-radius: 5px;
+    	padding: 10px;
+    	font-size: 20px;
+    	font-weight: 600;
+    	text-transform: uppercase;
+    	letter-spacing: .1em;
+    	color: white;
+    	background-color: #0084b4;
+    	-webkit-transition: all 0.5s ease;
+    	transition: all 0.5s ease;
+    	-webkit-appearance: none;
+    	margin-bottom: 20px;
+}
+
+#medium{
+	border: 0;
+    	outline: none;
+    	border-radius: 5px;
+    	padding: 10px;
+    	font-size: 20px;
+    	font-weight: 600;
+    	text-transform: uppercase;
+    	letter-spacing: .1em;
+    	color: white;
+    	background-color: #0084b4;
+    	-webkit-transition: all 0.5s ease;
+    	transition: all 0.5s ease;
+    	-webkit-appearance: none;
+    	margin-bottom: 20px;
+}
+
+#hard{
+	border: 0;
+    	outline: none;
+    	border-radius: 5px;
+    	padding: 10px;
+    	font-size: 20px;
+    	font-weight: 600;
+    	text-transform: uppercase;
+    	letter-spacing: .1em;
+    	color: white;
+    	background-color: #0084b4;
+    	-webkit-transition: all 0.5s ease;
+    	transition: all 0.5s ease;
+    	-webkit-appearance: none;
+    	margin-bottom: 20px;
 }
 
 #reset {
