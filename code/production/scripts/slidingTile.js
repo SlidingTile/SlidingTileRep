@@ -257,43 +257,68 @@ function handleDocumentLoad()
     //Check
     var moveCounter = document.getElementById("moveCounter");
     var moves = 0;
+    var queue = [];
+    var ready = true;
     function checkPosition(Tile){
+        if(ready == true){
         if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Right
             emptySquare.x = Tile.x; //Move empty
             //Tile.x += cellSize; //Move tile
-            animate(Tile, "right");
+            queue.push(new Q(Tile, "right"));
+            if(queue.length > 0){
+            animate(queue[0].Tile, queue[0].dir);
+            }
+            ready = false;
+            //animate(Tile, "right");
             moves++;
             updateTiles();
         }
         else if((Tile.x - cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Left
             emptySquare.x = Tile.x; //Move empty
             //Tile.x -= cellSize; //Move tile
-            animate(Tile, "left");
+            //animate(Tile, "left");
+            queue.push(new Q(Tile, "left"));
+         if(queue.length > 0){
+            animate(queue[0].Tile, queue[0].dir);
+            }
+            ready = false;
             moves++;
             updateTiles();
         }
         else if((Tile.y + cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){ //Move Current Tile Up
             emptySquare.y = Tile.y; //Move empty
            //Tile.y += cellSize; //Move tile
-            //animate(Tile, "up");
-            animate(Tile, "up");
+           // animate(Tile, "up");
+            queue.push(new Q(Tile, "up"));
+            if(queue.length > 0){
+            animate(queue[0].Tile, queue[0].dir);
+            }
+            ready = false;
             moves++;
             updateTiles();
         }
         else if((Tile.y - cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){ //Move Current Tile Down
             emptySquare.y = Tile.y; //Move empty
             //Tile.y -= cellSize; //Move Tile
-           animate(Tile, "down");
+           //animate(Tile, "down");
+            queue.push(new Q(Tile, "down"));
+            if(queue.length > 0){
+            animate(queue[0].Tile, queue[0].dir);
+            
+            }
+            ready = false;
             moves++;
             updateTiles();
         }
         moveCounter.innerHTML = pad(moves);
         checkComplete();
     }
+    }
     
     function updateTiles(){ // Draw tiles/ update their position
-        canvas.width += 0;
-              for(var x = 0; x < columns; x++){
+        canvas.width += 0; //KEEP - Refreshes the background
+
+        for(var x = 0; x < columns; x++){
            for(var y = 0; y < rows; y++){
                    if(y == columns-1 && x == rows-1){
                      
@@ -310,7 +335,6 @@ function handleDocumentLoad()
     function createTiles(){ //Fill the array with tiles and their image.
        for(var x = 0; x < columns; x++){
            for(var y = 0; y < rows; y++){
-               
                 if(y == columns-1 && x == rows-1){}
                else{
                    board[y][x] = new Tile(x, y, image);
@@ -370,7 +394,8 @@ function handleDocumentLoad()
             }
             else{
                 clearInterval(id);
-                return true;
+                ready = true;
+                queue.pop();
             }
         }
     }
@@ -392,5 +417,9 @@ function handleDocumentLoad()
             ctx.drawImage(this.image, this.a , this.b,this.size, this.size, this.x, this.y, this.size, this.size); //Crop and draw the image
         };
         
+    }
+    function Q(Tile, dir){
+        this.Tile = Tile;
+        this.dir = dir;
     }
 }
