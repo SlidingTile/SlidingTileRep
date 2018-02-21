@@ -308,26 +308,31 @@ function handleDocumentLoad()
         	}
     	}
 	//Randomise the tiles
-    var randomizeAmount = 1000; //Change this to randomize more
+    var randomizeAmount = 100; //Change this to randomize more
+    var prevRandom;
 	function randomize(){
-        	for(var i = 0; i < randomizeAmount; i++) {
+        if(randomizeAmount > 0){
                 var x = Math.floor(Math.random() * (cells));
                 var y = Math.floor(Math.random() * (cells));
             		if(x != 2 || y != 2) {
+                        if(prevRandom != board[x][y]); //Makes the function less random but more jumbled
                 		checkPosition(board[x][y]);
+                        prevRandom = board[x][y];
             		}
-        	}
+                    else{
+                        randomize();
+                    }
             
             //Reset moves to 0
             moves = 0; 
             moveCounter.innerHTML = pad(moves);
             
             //Reset Time to 0
-            totalSeconds = 0;
+            totalSeconds = difficulty;
             secondsLabel.innerHTML = pad(totalSeconds%60);
 			minutesLabel.innerHTML = pad(parseInt(totalSeconds/60)); 
     	}
-	
+    }
     //Get the position of the mouse when it updates
     function onMouseUpdate(e) {
     	var rect = canvas.getBoundingClientRect();
@@ -406,54 +411,57 @@ function handleDocumentLoad()
         if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Right
             emptySquare.x = Tile.x; //Move empty
             //Tile.x += cellSize; //Move tile
-            queue.push(new Q(Tile, "right"));
+            /*queue.push(new Q(Tile, "right"));
             if(queue.length > 0){
             animate(queue[0].Tile, queue[0].dir);
-            }
+            }*/
             ready = false;
-            //animate(Tile, "right");
+            animate(Tile, "right");
             moves++;
-            updateTiles();
+            //updateTiles();
         }
         else if((Tile.x - cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Left
             emptySquare.x = Tile.x; //Move empty
             //Tile.x -= cellSize; //Move tile
-            //animate(Tile, "left");
-            queue.push(new Q(Tile, "left"));
+            animate(Tile, "left");
+           /* queue.push(new Q(Tile, "left"));
          if(queue.length > 0){
             animate(queue[0].Tile, queue[0].dir);
-            }
+            }*/
             ready = false;
             moves++;
-            updateTiles();
+           // updateTiles();
         }
         else if((Tile.y + cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){ //Move Current Tile Up
             emptySquare.y = Tile.y; //Move empty
            //Tile.y += cellSize; //Move tile
-           // animate(Tile, "up");
-            queue.push(new Q(Tile, "up"));
+           animate(Tile, "up");
+           /* queue.push(new Q(Tile, "up"));
             if(queue.length > 0){
             animate(queue[0].Tile, queue[0].dir);
-            }
+            }*/
             ready = false;
             moves++;
-            updateTiles();
+            //updateTiles();
         }
         else if((Tile.y - cellSize == emptySquare.y) && (Tile.x == emptySquare.x)){ //Move Current Tile Down
             emptySquare.y = Tile.y; //Move empty
             //Tile.y -= cellSize; //Move Tile
-           //animate(Tile, "down");
-            queue.push(new Q(Tile, "down"));
+           animate(Tile, "down");
+            /*queue.push(new Q(Tile, "down"));
             if(queue.length > 0){
             animate(queue[0].Tile, queue[0].dir);
             
-            }
+            }*/
             ready = false;
             moves++;
-            updateTiles();
+            //updateTiles();
+        }
+        else if(randomizeAmount > 0){
+            randomize();
         }
         moveCounter.innerHTML = pad(moves);
-        checkComplete();
+        
     }
     }
     
@@ -488,6 +496,7 @@ function handleDocumentLoad()
 	
     function checkComplete(){    
         var completeCounter = 0;
+        if(randomizeAmount == 0){
         for(var i = 0; i < cells; i++){
             for(var j = 0; j < cells; j++){
                 if(board[i][j]!=null){ //Not null
@@ -510,12 +519,19 @@ function handleDocumentLoad()
             }
             }
         }
+        
+        }
     }
     function animate(Tile, dir){
         var id = setInterval(moveTile, 1);
         var initialPosX = Tile.x;
         var initialPosY = Tile.y;
-        var moveSpeed = 5;
+        var moveSpeed;
+        if(randomizeAmount > 0){
+            moveSpeed = 20; //Needs to be a factor of 200
+        }else{
+            moveSpeed = 5;
+        }
         function moveTile(){
             //console.log("moveTile");
             if(dir == "down" && Tile.y > initialPosY - cellSize){
@@ -541,9 +557,15 @@ function handleDocumentLoad()
             else{
                 clearInterval(id);
                 ready = true;
-                queue.pop();
+                checkComplete();
+        if(randomizeAmount > 0){
+            randomizeAmount--;
+            randomize();
+        }
+
             }
         }
+
     }
     
     
