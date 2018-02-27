@@ -21,7 +21,7 @@ body {
 	font-family: 'Roboto';
 	font-size: 22px;
 	color: #1C1C1C;
-	background-color: #0084b4;
+	background-color: #009ed8;
 	margin: 0 0 100px;
     	padding: 25px;
 }
@@ -33,7 +33,7 @@ body.dark {
 
 /*Navigation*/
 nav {
-	background-color: #1187b2;
+	background-color: #0084b4;
 	padding-top: 10px;
 	padding-bottom: 20px;
 	margin-bottom: 10px;
@@ -66,21 +66,21 @@ a:hover {
 
 /*Light Switches*/
 #lightSwitchOn {
-    	display: inline;
-    	position: absolute;
+	display: inline;
+	position: absolute;
     	top: 40px;
-    	right: 30px;
+   	right: 30px;
 	margin-right: 10px;
 	margin-bottom: 10px;
 	font-size: 40px;
 }
 	
 #lightSwitchOn.dark {
-    	display: none;
+	display: none;
 }
 	
 #lightSwitchOff {
-    	display: inline;
+	display: none;
     	position: absolute;
     	top: 40px;
     	right: 30px;
@@ -95,7 +95,7 @@ a:hover {
 /*Main Body*/
 #mainContent {
 	padding: 10px;
-	background-color: #D8D8D8;
+	background-color: #0084b4;
 	margin-top: 10px;
 	display: flex;
 	justify-content: space-around; 
@@ -160,7 +160,7 @@ input {
     	padding: 5px;
 }
 
-#easy, #medium, #hard, #reset, #random {
+#easy, #medium, #hard, #reset, #random, #showLeaderBoard {
 	border: 0;
     	outline: none;
     	border-radius: 5px;
@@ -170,7 +170,7 @@ input {
     	text-transform: uppercase;
     	letter-spacing: .1em;
     	color: white;
-    	background-color: #0084b4;
+    	background-color: #009ed8;
     	-webkit-transition: all 0.5s ease;
     	transition: all 0.5s ease;
     	-webkit-appearance: none;
@@ -190,12 +190,13 @@ input {
     	text-transform: uppercase;
     	letter-spacing: .1em;
     	color: white;
-    	background-color: #0084b4;
+    	background-color: #009ed8;
     	-webkit-transition: all 0.5s ease;
     	transition: all 0.5s ease;
     	-webkit-appearance: none;
     	margin-bottom: 20px;
-}	
+}
+
 #logo {
 	border: 0px;
     	display: inline;
