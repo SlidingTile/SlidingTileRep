@@ -160,75 +160,7 @@ input {
     	padding: 5px;
 }
 
-#easy{
-	border: 0;
-    	outline: none;
-    	border-radius: 5px;
-    	padding: 10px;
-    	font-size: 20px;
-    	font-weight: 600;
-    	text-transform: uppercase;
-    	letter-spacing: .1em;
-    	color: white;
-    	background-color: #0084b4;
-    	-webkit-transition: all 0.5s ease;
-    	transition: all 0.5s ease;
-    	-webkit-appearance: none;
-    	margin-bottom: 20px;
-}
-
-#medium{
-	border: 0;
-    	outline: none;
-    	border-radius: 5px;
-    	padding: 10px;
-    	font-size: 20px;
-    	font-weight: 600;
-    	text-transform: uppercase;
-    	letter-spacing: .1em;
-    	color: white;
-    	background-color: #0084b4;
-    	-webkit-transition: all 0.5s ease;
-    	transition: all 0.5s ease;
-    	-webkit-appearance: none;
-    	margin-bottom: 20px;
-}
-
-#hard{
-	border: 0;
-    	outline: none;
-    	border-radius: 5px;
-    	padding: 10px;
-    	font-size: 20px;
-    	font-weight: 600;
-    	text-transform: uppercase;
-    	letter-spacing: .1em;
-    	color: white;
-    	background-color: #0084b4;
-    	-webkit-transition: all 0.5s ease;
-    	transition: all 0.5s ease;
-    	-webkit-appearance: none;
-    	margin-bottom: 20px;
-}
-
-#reset {
-	border: 0;
-    	outline: none;
-    	border-radius: 5px;
-    	padding: 10px;
-    	font-size: 20px;
-    	font-weight: 600;
-    	text-transform: uppercase;
-    	letter-spacing: .1em;
-    	color: white;
-    	background-color: #0084b4;
-    	-webkit-transition: all 0.5s ease;
-    	transition: all 0.5s ease;
-    	-webkit-appearance: none;
-    	margin-bottom: 20px;
-}
-
-#random {
+#easy, #medium, #hard, #reset, #random {
 	border: 0;
     	outline: none;
     	border-radius: 5px;
