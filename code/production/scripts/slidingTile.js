@@ -101,7 +101,7 @@ function handleDocumentLoad()
 	horse.addEventListener('click', changeSource);
 	
 	function changeSource() {
-		var temp = this;
+		var temp = 'this';
 		if(initalImage == 0) {
 			this.id = 'source';
 			image = document.getElementById('source');
