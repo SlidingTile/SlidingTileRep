@@ -101,8 +101,8 @@ function handleDocumentLoad()
 	horse.addEventListener('click', changeSource);
 	
 	function changeSource() {
+		var temp = this;
 		if(initalImage == 0) {
-			var temp = this;
 			this.id = 'source';
 			image = document.getElementById('source');
 			createTiles();
