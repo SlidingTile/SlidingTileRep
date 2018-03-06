@@ -6,6 +6,7 @@ function handleDocumentLoad()
 	var easy = document.getElementById('Easy');
 	var medium = document.getElementById('Medium');
 	var hard = document.getElementById('Hard');
+	var instructions = document.getElementById('instructions');
 	game.style.visibility = 'hidden';
 	var image;
 	var initalImage = 0;
@@ -131,6 +132,7 @@ function handleDocumentLoad()
 			easy.style.display = 'initial'; //Hides difficulty button
 			medium.style.display = 'initial'; //Hides difficulty button
 			hard.style.display = 'initial'; //Hides difficulty button
+			instructions.style.display = 'none';
 		}
 	}
 
