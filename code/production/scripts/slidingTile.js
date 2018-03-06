@@ -108,6 +108,7 @@ function handleDocumentLoad()
 			createTiles();
 			initalImage = 1;
 		} else {
+			resetAll();
 			image.id = temp;
 			this.id = 'source';
 			image = document.getElementById('source');
