@@ -377,7 +377,7 @@ function handleDocumentLoad()
     function onMouseUpdate(e) {
     	var rect = canvas.getBoundingClientRect();
     	mouseX = e.pageX - rect.left;
-    	mouseY = e.pageY - rect.top;
+    	mouseY = e.pageY - rect.top - window.scrollY;
     }
     
     //Check which tile the mouse has clicked on
