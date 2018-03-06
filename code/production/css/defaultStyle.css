@@ -160,7 +160,10 @@ input {
     	padding: 5px;
 }
 
-#easy{
+#easy {
+	position: relative;
+	left: 215px;
+	top: -350px;
 	border: 0;
     	outline: none;
     	border-radius: 5px;
@@ -177,7 +180,10 @@ input {
     	margin-bottom: 20px;
 }
 
-#medium{
+#medium {
+	position: relative;
+	left: 215px;
+	top: -340px;
 	border: 0;
     	outline: none;
     	border-radius: 5px;
@@ -194,7 +200,10 @@ input {
     	margin-bottom: 20px;
 }
 
-#hard{
+#hard {
+	position: relative;
+	left: 215px;
+	top: -330px;
 	border: 0;
     	outline: none;
     	border-radius: 5px;
@@ -245,25 +254,6 @@ input {
     	margin-bottom: 20px;
 }
 
-#start {
-	position: relative;
-	left: 215px;
-	top: -335px;
-	border: 0;
-    	outline: none;
-    	border-radius: 5px;
-    	padding: 10px;
-    	font-size: 40px;
-    	font-weight: 600;
-    	text-transform: uppercase;
-    	letter-spacing: .1em;
-    	color: white;
-    	background-color: #0084b4;
-    	-webkit-transition: all 0.5s ease;
-    	transition: all 0.5s ease;
-    	-webkit-appearance: none;
-    	margin-bottom: 20px;
-}	
 #logo {
 	border: 0px;
     	display: inline;
