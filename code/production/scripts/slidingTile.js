@@ -8,6 +8,7 @@ function handleDocumentLoad()
 	var hard = document.getElementById('Hard');
 	game.style.visibility = 'hidden';
 	var image;
+	var temp;
 	
 	function enableCanvas() {
 		game.style.visibility = 'initial';
@@ -100,8 +101,10 @@ function handleDocumentLoad()
 	horse.addEventListener('click', changeSource);
 	
 	function changeSource() {
+		temp = this;
 		this.id = 'source';
 		image = document.getElementById('source');
+		canvas.width += 0;
 		createTiles();
 	}
 
