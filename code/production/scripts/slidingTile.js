@@ -294,7 +294,7 @@ function handleDocumentLoad()
 	
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	canvas.addEventListener('click', checkMouse);
-	image.addEventListener('load', createTiles);
+	image.addEventListener('click', createTiles);
 	random.addEventListener('click', randomize);
 	window.addEventListener('load', keyInput);
 	
@@ -302,15 +302,15 @@ function handleDocumentLoad()
     	canvas.width = canvSize; //Set the size of the canvas
     	canvas.height = canvSize; // "
     
-    var cells = 3;  //How many cells in a row/ column - Change this variable to change difficulty
-    var cellSize = canvSize/cells;
-    var rows = cells;
-    var columns = cells;
-    var board = [];
-    var mouseX = 0; //Mouse position
-    var mouseY = 0;
+    	var cells = 3;  //How many cells in a row/ column - Change this variable to change difficulty
+    	var cellSize = canvSize/cells;
+    	var rows = cells;
+    	var columns = cells;
+    	var board = [];
+    	var mouseX = 0; //Mouse position
+    	var mouseY = 0;
     
-    var emptySquare = new Tile(cells-1, cells-1, null); //Set the empty square in the bottom right
+    	var emptySquare = new Tile(cells-1, cells-1, null); //Set the empty square in the bottom right
     
     
     	//Initialize the 2D array and fill it with 'null'
