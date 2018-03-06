@@ -3,8 +3,9 @@ document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 function handleDocumentLoad()
 {
 	/* Hides / Unhides Canvas until start */
-	var start = document.getElementById('start');
-	start.addEventListener('click', enableCanvas);
+	var easy = document.getElementById('easy');
+	var medium = document.getElementById('medium');
+	var hard = document.getElementById('hard');
 	game.style.visibility = 'hidden';
 	
 	function enableCanvas() {
