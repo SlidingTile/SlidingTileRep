@@ -101,16 +101,17 @@ function handleDocumentLoad()
 	horse.addEventListener('click', changeSource);
 	
 	function changeSource() {
+		var temp = this;
 		if(initalImage == 0) {
 			this.id = 'source';
 			image = document.getElementById('source');
 			createTiles();
 			initalImage = 1;
 		} else {
-			image.id = this;
+			image.id = temp;
 			this.id = 'source';
 			image = document.getElementById('source');
-			canvas.width += 0;
+			createTiles();
 		}
 	}
 
