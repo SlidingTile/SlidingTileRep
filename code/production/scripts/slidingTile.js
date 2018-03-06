@@ -16,7 +16,7 @@ function handleDocumentLoad()
 	
 /*----------------------------------------------------------------------------------------*/
 	/* Sound */
-	Clicksound = new Audio('sound/Click.ogg');
+	clickSound = new Audio('sound/Click.ogg');
 	
 	function playSound() {
 	backgroundMusic = new Audio('sound/Background1.ogg');
