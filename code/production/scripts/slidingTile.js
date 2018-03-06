@@ -84,6 +84,13 @@ function handleDocumentLoad()
 			custom.style.display = 'inline';
 		}
 	}
+	
+	var dog = document.getElementById('dog');
+	dog.addEventListener('click', changeSource);
+	
+	function changeSource() {
+		dog.setAttribute("id", "source");
+	}
 
 /*----------------------------------------------------------------------------------------*/
 	
