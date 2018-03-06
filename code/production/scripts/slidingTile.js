@@ -91,6 +91,7 @@ function handleDocumentLoad()
 	var bird = document.getElementById('bird');
 	var cow = document.getElementById('cow');
 	var horse = document.getElementById('horse');
+	var source = document.getElementById('source');
 	
 	dog.addEventListener('click', changeSource);
 	cat.addEventListener('click', changeSource);
