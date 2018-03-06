@@ -483,7 +483,7 @@ function handleDocumentLoad()
     }
     
     function updateTiles(){ // Draw tiles/ update their position
-        canvas.width += 0; //KEEP - Refreshes the background
+        //canvas.width += 0; //KEEP - Refreshes the background
         for(var x = 0; x < columns; x++){
            for(var y = 0; y < rows; y++){
                    if(y == columns-1 && x == rows-1){
