@@ -16,6 +16,7 @@ function handleDocumentLoad()
 	
 	function enableCanvas() {
 		game.style.visibility = 'initial';
+		playSound();
 	}
 	
 /*----------------------------------------------------------------------------------------*/
@@ -194,7 +195,6 @@ function handleDocumentLoad()
 		resetGame(); // reset everything
 		enableCanvas();
 		startTimer();
-		playSound();
 		difficulty = 300;
 	}
 	
@@ -202,7 +202,6 @@ function handleDocumentLoad()
 		resetGame(); // reset everything
 		enableCanvas();
 		startTimer();
-		playSound();
 		difficulty = 120;
 	}
 	
@@ -210,7 +209,6 @@ function handleDocumentLoad()
 		resetGame(); // reset everything
 		enableCanvas();
 		startTimer();
-		playSound();
 		difficulty = 60;
 	}
 	
@@ -242,7 +240,7 @@ function handleDocumentLoad()
 		hard.style.display = 'inline'; //Shows difficulty button
 		game.style.visibility = 'hidden';
 		randomizeAmount = 100;
-		if (initalImage == 1) {
+		if (initalImage == 1 && backgroundMusic.paused == false) {
 			backgroundMusic.pause();
 		}
 	}
