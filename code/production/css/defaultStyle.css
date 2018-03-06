@@ -160,6 +160,10 @@ input {
     	padding: 5px;
 }
 
+select {
+	margin-bottom: 10px;
+}
+
 #easy {
 	position: relative;
 	left: 215px;
@@ -182,7 +186,7 @@ input {
 
 #medium {
 	position: relative;
-	left: 215px;
+	left: 205px;
 	top: -340px;
 	border: 0;
     	outline: none;
