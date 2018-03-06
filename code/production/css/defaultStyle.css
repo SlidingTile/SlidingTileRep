@@ -21,7 +21,7 @@ body {
 	font-family: 'Roboto';
 	font-size: 22px;
 	color: #1C1C1C;
-	background-color: #FFF;
+	background-color: #0084b4;
 	margin: 0 0 100px;
     	padding: 25px;
 }
@@ -161,7 +161,7 @@ input {
 }
 
 select {
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 #easy {
