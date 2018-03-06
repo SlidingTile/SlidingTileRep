@@ -116,6 +116,9 @@ function handleDocumentLoad()
 	function changeSource() {
 		var temp = this.id;
 		if(initalImage == 0) {
+			easy.style.display = 'initial'; //Shows difficulty button
+			medium.style.display = 'initial'; //Shows difficulty button
+			hard.style.display = 'initial'; //Shows difficulty button
 			this.id = 'source';
 			image = document.getElementById('source');
 			createTiles();
@@ -129,9 +132,6 @@ function handleDocumentLoad()
 			emptySquare = new Tile(cells-1, cells-1, null);
 			updateTiles();
 			backgroundMusic.pause();
-			easy.style.display = 'initial'; //Hides difficulty button
-			medium.style.display = 'initial'; //Hides difficulty button
-			hard.style.display = 'initial'; //Hides difficulty button
 			instructions.style.display = 'none';
 		}
 	}
