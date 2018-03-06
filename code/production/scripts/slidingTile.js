@@ -8,6 +8,9 @@ function handleDocumentLoad()
 	var hard = document.getElementById('Hard');
 	var instructions = document.getElementById('instructions');
 	game.style.visibility = 'hidden';
+	easy.style.display = 'none'; //Hides difficulty button
+	medium.style.display = 'none'; //Hides difficulty button
+	hard.style.display = 'none'; //Hides difficulty button
 	var image;
 	var initalImage = 0;
 	
@@ -113,9 +116,6 @@ function handleDocumentLoad()
 	function changeSource() {
 		var temp = this.id;
 		if(initalImage == 0) {
-			easy.style.display = 'none'; //Hides difficulty button
-			medium.style.display = 'none'; //Hides difficulty button
-			hard.style.display = 'none'; //Hides difficulty button
 			this.id = 'source';
 			image = document.getElementById('source');
 			createTiles();
