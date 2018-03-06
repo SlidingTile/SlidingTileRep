@@ -87,11 +87,11 @@ function handleDocumentLoad()
 	
 	var dog = document.getElementById('dog');
 	var cat = document.getElementById('cat');
-	dog.addEventListener('click', changeSource(this));
-	cat.addEventListener('click', changeSource(this));
+	dog.addEventListener('click', changeSource);
+	cat.addEventListener('click', changeSource);
 	
-	function changeSource(this) {
-		this.setAttribute("id", "source");
+	function changeSource() {
+		this.id = 'source';
 		createTiles();
 	}
 
