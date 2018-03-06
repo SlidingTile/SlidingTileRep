@@ -7,7 +7,7 @@ function handleDocumentLoad()
 	var medium = document.getElementById('Medium');
 	var hard = document.getElementById('Hard');
 	game.style.visibility = 'hidden';
-	var image = document.getElementById('source');
+	var image;
 	
 	function enableCanvas() {
 		game.style.visibility = 'initial';
@@ -99,7 +99,9 @@ function handleDocumentLoad()
 	horse.addEventListener('click', changeSource);
 	
 	function changeSource() {
+		source.id = this;
 		this.id = 'source';
+		image = document.getElementById('source');
 		canvas.width += 0;
 		createTiles();
 	}
@@ -308,10 +310,6 @@ function handleDocumentLoad()
 	random.addEventListener('click', randomize);
 	window.addEventListener('load', keyInput);
 	
-	if (image == null) {
-		dog.id = 'source';
-	}
-	
 	var canvSize = 600; //size of the canvas size in pixels
     	canvas.width = canvSize; //Set the size of the canvas
     	canvas.height = canvSize; // "
@@ -324,8 +322,7 @@ function handleDocumentLoad()
     	var mouseX = 0; //Mouse position
     	var mouseY = 0;
     
-    	var emptySquare = new Tile(cells-1, cells-1, null); //Set the empty square in the bottom right
-    
+    	var emptySquare = new Tile(cells-1, cells-1, null); //Set the empty square in the bottom right   
     
     	//Initialize the 2D array and fill it with 'null'
     	createEmptyBoard();
@@ -341,31 +338,29 @@ function handleDocumentLoad()
         	}
     	}
 	//Randomise the tiles
-    var randomizeAmount = 100; //Change this to randomize more
-    var prevRandom;
-	function randomize(){
-        if(randomizeAmount > 0){
+    	var randomizeAmount = 100; //Change this to randomize more
+    	var prevRandom;
+	function randomize() {
+        if(randomizeAmount > 0) { 
                 var x = Math.floor(Math.random() * (cells));
                 var y = Math.floor(Math.random() * (cells));
             		if(x != 2 || y != 2) {
                         if(prevRandom != board[x][y]); //Makes the function less random but more jumbled
                 		checkPosition(board[x][y]);
                         prevRandom = board[x][y];
-            		}
-                    else{
+            		} else {
                         randomize();
-                    }
+                    	}
+		
+		//Reset moves to 0
+            	moves = 0;
+            	moveCounter.innerHTML = pad(moves);
             
-            //Reset moves to 0
-            moves = 0;
-            moveCounter.innerHTML = pad(moves);
-            
-            //Reset Time to 0
-            totalSeconds = difficulty;
-            secondsLabel.innerHTML = pad(totalSeconds%60);
-			minutesLabel.innerHTML = pad(parseInt(totalSeconds/60)); 
+            	//Reset Time to 0
+            	totalSeconds = difficulty;
+            	secondsLabel.innerHTML = pad(totalSeconds%60);minutesLabel.innerHTML = pad(parseInt(totalSeconds/60)); 
+    		}
     	}
-    }
     //Get the position of the mouse when it updates
     function onMouseUpdate(e) {
     	var rect = canvas.getBoundingClientRect();
