@@ -142,24 +142,23 @@ function handleDocumentLoad()
 	medium.addEventListener('click', MediumDifficulty);	
 	easy.addEventListener('click', EasyDifficulty);
 	
-	function EasyDifficulty()
-	{
+	function EasyDifficulty() {
 		resetAll(); // reset everything
-		game.style.visibility = 'inline';
+		enableCanvas();
 		startTimer();
 		difficulty = 300;
 	}
-	function MediumDifficulty()
-	{
+	
+	function MediumDifficulty() {
 		resetAll(); // reset everything
-		game.style.visibility = 'inline';
+		enableCanvas();
 		startTimer();
 		difficulty = 120;
 	}
-	function HardDifficulty()
-	{
+	
+	function HardDifficulty() {
 		resetAll(); // reset everything
-		game.style.visibility = 'inline';
+		enableCanvas();
 		startTimer();
 		difficulty = 60;
 	}
@@ -178,10 +177,6 @@ function handleDocumentLoad()
 		secondsLabel.innerHTML = pad(totalSeconds%60);
 		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
 		clearInterval(time);
-		easy.style.display = 'inline'; //Shows difficulty button
-		medium.style.display = 'inline'; //Shows difficulty button
-		hard.style.display = 'inline'; //Shows difficulty button
-		game.style.visibility = 'hidden';
 	}
 	
 /*----------------------------------------------------------------------------------------*/
