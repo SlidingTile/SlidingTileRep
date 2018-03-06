@@ -113,7 +113,8 @@ function handleDocumentLoad()
 			this.id = 'source';
 			image = document.getElementById('source');
 			createTiles();
-			//updateTiles();
+			emptySquare = new Tile(cells-1, cells-1, null);
+			updateTiles();
 		}
 	}
 
