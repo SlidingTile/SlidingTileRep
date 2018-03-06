@@ -86,10 +86,12 @@ function handleDocumentLoad()
 	}
 	
 	var dog = document.getElementById('dog');
-	dog.addEventListener('click', changeSource);
+	var cat = document.getElementById('cat');
+	dog.addEventListener('click', changeSource(this));
 	
 	function changeSource() {
-		dog.setAttribute("id", "source");
+		this.setAttribute("id", "source");
+		createTiles();
 	}
 
 /*----------------------------------------------------------------------------------------*/
@@ -294,9 +296,6 @@ function handleDocumentLoad()
 	
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	canvas.addEventListener('click', checkMouse);
-	if (image != null) {
-		image.addEventListener('click', createTiles);
-	}
 	random.addEventListener('click', randomize);
 	window.addEventListener('load', keyInput);
 	
