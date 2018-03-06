@@ -188,6 +188,7 @@ function handleDocumentLoad()
 		medium.style.display = 'inline'; //Shows difficulty button
 		hard.style.display = 'inline'; //Shows difficulty button
 		game.style.visibility = 'hidden';
+		randomizeAmount = 100;
 	}
 	
 /*----------------------------------------------------------------------------------------*/
