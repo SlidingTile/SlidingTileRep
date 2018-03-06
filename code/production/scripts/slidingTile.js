@@ -112,7 +112,6 @@ function handleDocumentLoad()
 			image.id = temp;
 			this.id = 'source';
 			image = document.getElementById('source');
-			createTiles();
 		}
 	}
 
