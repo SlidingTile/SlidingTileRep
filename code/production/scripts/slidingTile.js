@@ -324,7 +324,7 @@ function handleDocumentLoad()
                     }
             
             //Reset moves to 0
-            moves = 0; 
+            moves = 0;
             moveCounter.innerHTML = pad(moves);
             
             //Reset Time to 0
