@@ -88,8 +88,15 @@ function handleDocumentLoad()
 	
 	var dog = document.getElementById('dog');
 	var cat = document.getElementById('cat');
+	var bird = document.getElementById('bird');
+	var cow = document.getElementById('cow');
+	var horse = document.getElementById('horse');
+	
 	dog.addEventListener('click', changeSource);
 	cat.addEventListener('click', changeSource);
+	bird.addEventListener('click', changeSource);
+	cow.addEventListener('click', changeSource);
+	horse.addEventListener('click', changeSource);
 	
 	function changeSource() {
 		this.id = 'source';
