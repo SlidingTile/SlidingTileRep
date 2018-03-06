@@ -90,9 +90,6 @@ function handleDocumentLoad()
 	/*Timer Function*/
 	var minutesLabel = document.getElementById("minutes");
 	var secondsLabel = document.getElementById("seconds");
-	easy.addEventListener('click', startTimer);
-	medium.addEventListener('click', startTimer);
-	hard.addEventListener('click', startTimer);
 	var totalSeconds = difficulty; // set starting time equal to difficulty (easy = 3 mins / 180 secs)
 	var time;
 	
@@ -148,16 +145,22 @@ function handleDocumentLoad()
 	function EasyDifficulty()
 	{
 		resetAll(); // reset everything
+		game.style.visibility = 'inline';
+		startTimer();
 		difficulty = 300;
 	}
 	function MediumDifficulty()
 	{
 		resetAll(); // reset everything
+		game.style.visibility = 'inline';
+		startTimer();
 		difficulty = 120;
 	}
 	function HardDifficulty()
 	{
 		resetAll(); // reset everything
+		game.style.visibility = 'inline';
+		startTimer();
 		difficulty = 60;
 	}
 	
