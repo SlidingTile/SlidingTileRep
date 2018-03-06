@@ -294,7 +294,9 @@ function handleDocumentLoad()
 	
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	canvas.addEventListener('click', checkMouse);
-	image.addEventListener('click', createTiles);
+	if (image != null) {
+		image.addEventListener('click', createTiles);
+	}
 	random.addEventListener('click', randomize);
 	window.addEventListener('load', keyInput);
 	
