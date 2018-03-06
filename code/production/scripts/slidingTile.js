@@ -309,6 +309,10 @@ function handleDocumentLoad()
 	random.addEventListener('click', randomize);
 	window.addEventListener('load', keyInput);
 	
+	if (image == null) {
+		dog.id = 'source';
+	}
+	
 	var canvSize = 600; //size of the canvas size in pixels
     	canvas.width = canvSize; //Set the size of the canvas
     	canvas.height = canvSize; // "
