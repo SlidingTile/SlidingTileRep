@@ -7,6 +7,7 @@ function handleDocumentLoad()
 	var medium = document.getElementById('Medium');
 	var hard = document.getElementById('Hard');
 	game.style.visibility = 'hidden';
+	var image;
 	
 	function enableCanvas() {
 		game.style.visibility = 'initial';
@@ -92,6 +93,7 @@ function handleDocumentLoad()
 	
 	function changeSource() {
 		this.id = 'source';
+		image = document.getElementById('source');
 	}
 
 /*----------------------------------------------------------------------------------------*/
@@ -291,12 +293,11 @@ function handleDocumentLoad()
 	/*Sliding Tile Function*/
 	var canvas = document.getElementById('game');
 	var ctx = canvas.getContext('2d');
-	var image = document.getElementById('source');
 	var random = document.getElementById('random');
 	
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	canvas.addEventListener('click', checkMouse);
-	image.addEventListener('onchange', createTiles);
+	image.addEventListener('load', createTiles);
 	random.addEventListener('click', randomize);
 	window.addEventListener('load', keyInput);
 	
