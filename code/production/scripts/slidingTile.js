@@ -376,8 +376,8 @@ function handleDocumentLoad()
     //Get the position of the mouse when it updates
     function onMouseUpdate(e) {
     	var rect = canvas.getBoundingClientRect();
-    	mouseX = e.pageX - rect.left;
-    	mouseY = e.pageY - rect.top;
+    	mouseX = e.pageX; //- rect.left;
+    	mouseY = e.pageY; //- rect.top;
     }
     
     //Check which tile the mouse has clicked on
