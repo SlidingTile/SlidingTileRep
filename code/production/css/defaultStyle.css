@@ -135,6 +135,12 @@ a:hover {
 	border: solid 1px white;
 	padding-bottom: 20px;
 	margin-top: 100px;
+	margin-bottom: 0;
+}
+
+#categories {
+	position: relative;
+	bottom: 100px;
 }
 
 img {
