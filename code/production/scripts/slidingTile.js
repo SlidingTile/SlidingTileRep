@@ -101,14 +101,13 @@ function handleDocumentLoad()
 	horse.addEventListener('click', changeSource);
 	
 	function changeSource() {
-		var temp = 'this';
 		if(initalImage == 0) {
 			this.id = 'source';
 			image = document.getElementById('source');
 			createTiles();
 			initalImage = 1;
 		} else {
-			image.id = temp;
+			image.id = this;
 			this.id = 'source';
 			image = document.getElementById('source');
 			canvas.width += 0;
