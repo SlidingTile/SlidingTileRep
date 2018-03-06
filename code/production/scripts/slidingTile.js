@@ -8,7 +8,7 @@ function handleDocumentLoad()
 	var hard = document.getElementById('Hard');
 	game.style.visibility = 'hidden';
 	var image;
-	var temp = '';
+	var initalImage = 0;
 	
 	function enableCanvas() {
 		game.style.visibility = 'initial';
@@ -101,11 +101,18 @@ function handleDocumentLoad()
 	horse.addEventListener('click', changeSource);
 	
 	function changeSource() {
-		temp = this;
-		this.id = 'source';
-		image = document.getElementById('source');
-		canvas.width += 0;
-		createTiles();
+		if(initalImage == 0) {
+			var temp = this;
+			this.id = 'source';
+			image = document.getElementById('source');
+			createTiles();
+			initalImage = 1;
+		} else {
+			image.id = temp;
+			this.id = 'source';
+			image = document.getElementById('source');
+			canvas.width += 0;
+		}
 	}
 
 /*----------------------------------------------------------------------------------------*/
