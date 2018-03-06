@@ -7,7 +7,7 @@ function handleDocumentLoad()
 	var medium = document.getElementById('Medium');
 	var hard = document.getElementById('Hard');
 	game.style.visibility = 'hidden';
-	var image;
+	var image = document.getElementById('source');
 	
 	function enableCanvas() {
 		game.style.visibility = 'initial';
@@ -100,7 +100,6 @@ function handleDocumentLoad()
 	
 	function changeSource() {
 		this.id = 'source';
-		image = document.getElementById('source');
 		canvas.width += 0;
 		createTiles();
 	}
