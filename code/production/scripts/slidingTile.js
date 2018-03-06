@@ -94,6 +94,7 @@ function handleDocumentLoad()
 	function changeSource() {
 		this.id = 'source';
 		image = document.getElementById('source');
+		createTiles();
 	}
 
 /*----------------------------------------------------------------------------------------*/
@@ -297,7 +298,6 @@ function handleDocumentLoad()
 	
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	canvas.addEventListener('click', checkMouse);
-	image.addEventListener('load', createTiles);
 	random.addEventListener('click', randomize);
 	window.addEventListener('load', keyInput);
 	
