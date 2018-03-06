@@ -132,9 +132,6 @@ function handleDocumentLoad()
 			createTiles();
 			emptySquare = new Tile(cells-1, cells-1, null);
 			updateTiles();
-			if (backgroundMusic.paused == false) {
-				backgroundMusic.pause();
-			}
 		}
 	}
 
@@ -245,7 +242,9 @@ function handleDocumentLoad()
 		hard.style.display = 'inline'; //Shows difficulty button
 		game.style.visibility = 'hidden';
 		randomizeAmount = 100;
-		backgroundMusic.pause();
+		if (backgroundMusic.paused == false) {
+			backgroundMusic.pause();
+		}
 	}
 	
 /*----------------------------------------------------------------------------------------*/
