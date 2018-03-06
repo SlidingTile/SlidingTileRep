@@ -61,7 +61,7 @@ function handleDocumentLoad()
 	function changeCategory() {
 		if (categories.value === 'default') {
 			title.innerHTML = '';
-			secondTitle.innerHTML = 'Select a Category Using The Dropdown Menu';
+			secondTitle.innerHTML = 'Select a Category Below Using The Dropdown Menu';
 			animals.style.display = 'none';
 			cars.style.display = 'none';
 			scenery.style.display = 'none';
