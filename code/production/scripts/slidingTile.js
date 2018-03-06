@@ -90,7 +90,9 @@ function handleDocumentLoad()
 	/*Timer Function*/
 	var minutesLabel = document.getElementById("minutes");
 	var secondsLabel = document.getElementById("seconds");
-	start.addEventListener('click', startTimer);
+	easy.addEventListener('click', startTimer);
+	medium.addEventListener('click', startTimer);
+	hard.addEventListener('click', startTimer);
 	var totalSeconds = difficulty; // set starting time equal to difficulty (easy = 3 mins / 180 secs)
 	var time;
 	
@@ -115,7 +117,9 @@ function handleDocumentLoad()
 		totalSeconds = difficulty;
 		
 		randomize(); //Randomize board
-		start.style.display = 'none'; //Hides start button
+		easy.style.display = 'none'; //Hides difficulty button
+		medium.style.display = 'none'; //Hides difficulty button
+		hard.style.display = 'none'; //Hides difficulty button
 		time = setInterval(setTime, 1000); //Repeats function every 1000ms or 1 second
 
 		function setTime()
@@ -137,14 +141,9 @@ function handleDocumentLoad()
 
 	/*Difficulty Functions - Change values as needed */
 	
-	var hardDifficulty = document.getElementById("Hard"); // Hard button
-	Hard.addEventListener('click', HardDifficulty);
-	
-	var mediumDifficulty = document.getElementById("Medium"); // Medium button
-	Medium.addEventListener('click', MediumDifficulty);
-	
-	var easyDifficulty = document.getElementById("Easy"); // Easy button
-	Easy.addEventListener('click', EasyDifficulty);
+	hard.addEventListener('click', HardDifficulty);
+	medium.addEventListener('click', MediumDifficulty);	
+	easy.addEventListener('click', EasyDifficulty);
 	
 	function EasyDifficulty()
 	{
@@ -176,7 +175,9 @@ function handleDocumentLoad()
 		secondsLabel.innerHTML = pad(totalSeconds%60);
 		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
 		clearInterval(time);
-		start.style.display = 'inline'; //Shows start button
+		easy.style.display = 'inline'; //Shows difficulty button
+		medium.style.display = 'inline'; //Shows difficulty button
+		hard.style.display = 'inline'; //Shows difficulty button
 		game.style.visibility = 'hidden';
 	}
 	
@@ -187,19 +188,19 @@ function handleDocumentLoad()
 	
 	function Lose()
 	{
-		window.alert("You lost, better luck next time! Maybe lower the difficulty."); // needs a makeover
+		window.alert("You lost, better luck next time!"); // needs a makeover
 		resetAll() // reset everything
 	}
 
 /*----------------------------------------------------------------------------------------*/
 	/* Show Leaderboards */
 	var showLeaders = document.getElementById("showLeaderboard"); // get button for leaderboards
-	showLeaderboard.addEventListener('click', showLeaderboards)
+	showLeaders.addEventListener('click', showLeaderboards)
 	
 	function showLeaderboards() // This needs to be called to essentially refresh the scores - Could be used as a refresh button rather than 
 	// hiding the whole leaderboard.
 	{
-		document.getElementById("leaderboards").style = "display: inline-block;";
+		document.getElementById("leaderboards").style.display = 'inline-block';
 		
 		// All the scores & names
 		document.getElementById("P1").innerHTML = localStorage.name1;
@@ -262,7 +263,7 @@ function handleDocumentLoad()
 		
 		localStorage.setItem("name", name);
 		localStorage.setItem("score", score);
-        completeCounter = 0;
+		completeCounter = 0;
 		secondModifier = 0; // Stop time!
 	}
 
