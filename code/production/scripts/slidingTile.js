@@ -132,7 +132,7 @@ function handleDocumentLoad()
 			createTiles();
 			emptySquare = new Tile(cells-1, cells-1, null);
 			updateTiles();
-			if (!backgroundMusic.paused) {
+			if (backgroundMusic.paused == false) {
 				backgroundMusic.pause();
 			}
 		}
