@@ -2,7 +2,7 @@ document.addEventListener ("DOMContentLoaded", handleDocumentLoad);
 
 function handleDocumentLoad()
 {
-	/* Hides / Unhides Canvas until start */
+	/* Hides / Unhides Elements until start */
 	var easy = document.getElementById('Easy');
 	var medium = document.getElementById('Medium');
 	var hard = document.getElementById('Hard');
@@ -19,12 +19,11 @@ function handleDocumentLoad()
 		playSound();
 	}
 	
-/*----------------------------------------------------------------------------------------*/
 	/* Sound */
 	clickSound = new Audio('sound/Click.ogg');
+	backgroundMusic = new Audio('sound/Background1.ogg');
 	
 	function playSound() {
-	backgroundMusic = new Audio('sound/Background1.ogg');
 	backgroundMusic.addEventListener('ended', function() {
 		this.currentTime = 0;
 		this.play();
@@ -101,6 +100,7 @@ function handleDocumentLoad()
 		}
 	}
 	
+	/*Click picture allows change*/
 	var dog = document.getElementById('dog');
 	var cat = document.getElementById('cat');
 	var bird = document.getElementById('bird');
@@ -135,8 +135,6 @@ function handleDocumentLoad()
 			updateTiles();
 		}
 	}
-
-/*----------------------------------------------------------------------------------------*/
 	
 	/*Timer Function*/
 	var minutesLabel = document.getElementById("minutes");
@@ -183,10 +181,8 @@ function handleDocumentLoad()
 			
 		}
 	}
-/*----------------------------------------------------------------------------------------*/
 
 	/*Difficulty Functions - Change values as needed */
-	
 	hard.addEventListener('click', HardDifficulty);
 	medium.addEventListener('click', MediumDifficulty);	
 	easy.addEventListener('click', EasyDifficulty);
@@ -211,9 +207,6 @@ function handleDocumentLoad()
 		startTimer();
 		difficulty = 60;
 	}
-	
-
-/*----------------------------------------------------------------------------------------*/
 	
 	/*Reset Function */
 	var reset = document.getElementById("reset"); //Reset button
@@ -240,23 +233,16 @@ function handleDocumentLoad()
 		hard.style.display = 'inline'; //Shows difficulty button
 		game.style.visibility = 'hidden';
 		randomizeAmount = 100;
-		if (backgroundMusic != null) {
-			backgroundMusic.pause();
-		}
+		backgroundMusic.pause();
 	}
-	
-/*----------------------------------------------------------------------------------------*/
-
 
 	/* Losing Function */
-	
 	function Lose()
 	{
 		window.alert("You lost, better luck next time!"); // needs a makeover
 		resetAll() // reset everything
 	}
 
-/*----------------------------------------------------------------------------------------*/
 	/* Show Leaderboards */
 	var showLeaders = document.getElementById("showLeaderboard"); // get button for leaderboards
 	showLeaders.addEventListener('click', showLeaderboards)
@@ -282,6 +268,7 @@ function handleDocumentLoad()
 		document.getElementById("P5").innerHTML = localStorage.name5;
 		document.getElementById("P5S").innerHTML = localStorage.score5;
 	}
+	
 	/* Winning Function */
 	function Win()
 	{
