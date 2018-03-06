@@ -93,8 +93,6 @@ function handleDocumentLoad()
 	var totalSeconds = difficulty; // set starting time equal to difficulty (easy = 3 mins / 180 secs)
 	var time;
 	
-	
-	
 	function pad(val) //Takes value of the number of seconds
 	{
 		var valString = val + "";
@@ -143,21 +141,21 @@ function handleDocumentLoad()
 	easy.addEventListener('click', EasyDifficulty);
 	
 	function EasyDifficulty() {
-		resetAll(); // reset everything
+		resetGame(); // reset everything
 		enableCanvas();
 		startTimer();
 		difficulty = 300;
 	}
 	
 	function MediumDifficulty() {
-		resetAll(); // reset everything
+		resetGame(); // reset everything
 		enableCanvas();
 		startTimer();
 		difficulty = 120;
 	}
 	
 	function HardDifficulty() {
-		resetAll(); // reset everything
+		resetGame(); // reset everything
 		enableCanvas();
 		startTimer();
 		difficulty = 60;
@@ -170,13 +168,26 @@ function handleDocumentLoad()
 	var reset = document.getElementById("reset"); //Reset button
 	reset.addEventListener('click', resetAll);
 	
-	function resetAll() //Resets value and stops function
+	function resetGame() //Resets value and stops function
 	{
 		secondModifier = 1;
 		totalSeconds = 0;
 		secondsLabel.innerHTML = pad(totalSeconds%60);
 		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
 		clearInterval(time);
+	}
+	
+	function resetAll()
+	{
+		secondModifier = 1;
+		totalSeconds = 0;
+		secondsLabel.innerHTML = pad(totalSeconds%60);
+		minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+		clearInterval(time);
+		easy.style.display = 'inline'; //Shows difficulty button
+		medium.style.display = 'inline'; //Shows difficulty button
+		hard.style.display = 'inline'; //Shows difficulty button
+		game.style.visibility = 'hidden';
 	}
 	
 /*----------------------------------------------------------------------------------------*/
