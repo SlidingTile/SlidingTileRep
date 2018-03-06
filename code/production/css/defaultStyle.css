@@ -165,8 +165,8 @@ select {
 
 #easy {
 	position: relative;
-	left: 215px;
-	top: -350px;
+	left: 250px;
+	top: -380px;
 	border: 0;
     	outline: none;
     	border-radius: 5px;
@@ -185,8 +185,8 @@ select {
 
 #medium {
 	position: relative;
-	left: 200px;
-	top: -340px;
+	left: 235px;
+	top: -360px;
 	border: 0;
     	outline: none;
     	border-radius: 5px;
@@ -205,8 +205,8 @@ select {
 
 #hard {
 	position: relative;
-	left: 215px;
-	top: -330px;
+	left: 250px;
+	top: -340px;
 	border: 0;
     	outline: none;
     	border-radius: 5px;
