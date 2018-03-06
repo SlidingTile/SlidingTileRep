@@ -102,7 +102,6 @@ function handleDocumentLoad()
 	function changeSource() {
 		this.id = 'source';
 		image = document.getElementById('source');
-		canvas.width += 0;
 		createTiles();
 	}
 
