@@ -124,7 +124,7 @@ function handleDocumentLoad()
 			createTiles();
 			emptySquare = new Tile(cells-1, cells-1, null);
 			updateTiles();
-			backgroundMusic.stop();
+			backgroundMusic.pause();
 		}
 	}
 
