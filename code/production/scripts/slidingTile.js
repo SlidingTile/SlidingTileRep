@@ -16,9 +16,16 @@ function handleDocumentLoad()
 	
 /*----------------------------------------------------------------------------------------*/
 	/* Sound */
-	var clickSound = new Audio('sound/Click.ogg');
-	var backgroundMusic = document.getElementById("BMusic");
+	function playSound() {
+	backgroundMusic = new Audio('sound/Click.ogg');
+	backgroundMusic.addEventListener('ended', function() {
+		this.currentTime = 0;
+		this.play();
+	}, false);
+	backgroundMusic.play();
 	backgroundMusic.volume = 0.2; //0-1
+	}
+		
 	/* Score */
 	var name;
 	var score;
@@ -177,6 +184,7 @@ function handleDocumentLoad()
 		resetGame(); // reset everything
 		enableCanvas();
 		startTimer();
+		playSound();
 		difficulty = 300;
 	}
 	
@@ -184,6 +192,7 @@ function handleDocumentLoad()
 		resetGame(); // reset everything
 		enableCanvas();
 		startTimer();
+		playSound();
 		difficulty = 120;
 	}
 	
@@ -191,6 +200,7 @@ function handleDocumentLoad()
 		resetGame(); // reset everything
 		enableCanvas();
 		startTimer();
+		playSound();
 		difficulty = 60;
 	}
 	
