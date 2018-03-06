@@ -107,6 +107,7 @@ a:hover {
 
 #leftSideBar {
 	text-align: center;
+	margin-top: 100px;
 }
 
 #middle {
@@ -123,6 +124,7 @@ a:hover {
 
 #rightSideBar {
 	text-align: center;
+	margin-top: 100px;
 }
 
 #leaderboards{
