@@ -242,7 +242,7 @@ function handleDocumentLoad()
 		hard.style.display = 'inline'; //Shows difficulty button
 		game.style.visibility = 'hidden';
 		randomizeAmount = 100;
-		if (backgroundMusic.paused == false) {
+		if (initalImage == 1) {
 			backgroundMusic.pause();
 		}
 	}
