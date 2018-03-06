@@ -8,7 +8,7 @@ function handleDocumentLoad()
 	var hard = document.getElementById('Hard');
 	game.style.visibility = 'hidden';
 	var image;
-	var temp;
+	var temp = '';
 	
 	function enableCanvas() {
 		game.style.visibility = 'initial';
