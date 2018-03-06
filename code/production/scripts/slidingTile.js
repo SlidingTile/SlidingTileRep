@@ -100,7 +100,6 @@ function handleDocumentLoad()
 	horse.addEventListener('click', changeSource);
 	
 	function changeSource() {
-		source.id = this;
 		this.id = 'source';
 		image = document.getElementById('source');
 		canvas.width += 0;
