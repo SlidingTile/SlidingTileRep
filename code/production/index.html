@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/defaultStyle.css" type="text/css"> <!-- Loads Stylesheet -->
 	<script src="scripts/lightSwitch.js"></script> <!-- Loads LightSwitch Function -->
 	<script src="scripts/slidingTile.js"></script> <!-- Loads Sliding Tile Functions -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto' type='text/css'> <!-- Google Font -->
 
 	</head>
@@ -93,10 +94,24 @@
 			</div>
 		
 			<div id="custom"> <!-- All Custom Pictures -->
-				<input type='file' id="customFile"><br>
+				<input type='file'><br>
 				<img id="custom" src="#"></img>
-				<button id="uploadButton">Upload</button>
 			</div>
+			<script>
+				$(function () {
+					$(":file").change(function () {
+						if (this.files && this.files[0]) {
+							var reader = new FileReader();
+							reader.onload = imageIsLoaded;
+							reader.readAsDataURL(this.files[0]);
+						}
+					});
+				});
+				
+				function imageIsLoaded(e) {
+					$('#myImg').attr('src', e.target.result);
+				};
+			</script>
 		</div> <!-- Closes Pictures -->
 	</div>
 </body>
