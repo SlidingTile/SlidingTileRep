@@ -65,10 +65,10 @@ a:hover {
 
 /*Light Switches*/
 #lightSwitchOn {
-    display: inline;
-    position: absolute;
-    top: 40px;
-    right: 30px;
+    	display: inline;
+    	position: absolute;
+    	top: 40px;
+    	right: 30px;
 	margin-right: 10px;
 	margin-bottom: 10px;
 	font-size: 40px;
@@ -79,16 +79,16 @@ a:hover {
 }
 	
 #lightSwitchOff {
-    display: none;
-    position: absolute;
-    top: 40px;
-    right: 30px;
+	display: none;
+    	position: absolute;
+    	top: 40px;
+    	right: 30px;
 	margin-right: 10px;
 	font-size: 40px;
 }
 
 #lightSwitchOff.dark {
-    display: inline;
+    	display: inline;
 }
 
 /*Main Body*/
@@ -141,7 +141,7 @@ a:hover {
 }
 
 #upload-Image {
-	margin-left: 20px;
+	margin-left: 40px;
 }
 
 img {
