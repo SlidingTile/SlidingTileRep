@@ -106,17 +106,16 @@ function handleDocumentLoad()
 	function readURL() {
 		if (this.files && this.files[0]) {
             		var reader = new FileReader();
-
-            		reader.load = function (e) {
+			
+			reader.load = function(e) {
 				var custom = document.getElementById('custom');
                 		custom.src = e.target.result;
-                    		custom.style.width = '150px';
+                    		custom.style.width = '200px';
                     		custom.style.height = '200px';
             		};
-
-            		reader.readAsDataURL(this.files[0]);
-        	}
-    	}
+			reader.readAsDataURL(this.files[0]);
+		}
+	}
 	
 	/*Click picture allows change*/
 	var dog = document.getElementById('dog');
