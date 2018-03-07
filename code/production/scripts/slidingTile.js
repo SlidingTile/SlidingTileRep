@@ -108,9 +108,10 @@ function handleDocumentLoad()
             		var reader = new FileReader();
 
             		reader.onload = function (e) {
-                		upload.src = e.target.result;
-                    		upload.style.width = '150px';
-                    		upload.style.height = '200px';
+				var custom = document.getElementById('custom');
+                		custom.src = e.target.result;
+                    		custom.style.width = '150px';
+                    		custom.style.height = '200px';
             		};
 
             		reader.readAsDataURL(this.files[0]);
