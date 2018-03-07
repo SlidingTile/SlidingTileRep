@@ -66,6 +66,8 @@ function handleDocumentLoad()
 			cars.style.display = 'none';
 			scenery.style.display = 'none';
 			custom.style.display = 'none';
+		} else if(categories.value === 'custom') {
+			title.innerHTML = 'Custom: Recommended upload size 600 x 600';
 		} else {
 			title.innerHTML = categories.value;
 			secondTitle.innerHTML = '';
