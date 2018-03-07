@@ -95,7 +95,8 @@
 		
 			<div id="custom"> <!-- All Custom Pictures -->
 				<input type='file' id="uploadImg"><br>
-				<img id="customImg" src="#"></img>
+				<img id="customImg"></img>
+				<img id="customImgNew"></img>
 			</div>
 			<script type="text/javascript">
 			var fileReader = new FileReader();
@@ -121,7 +122,7 @@
 				  canvas.height
 			      );
 
-			      document.getElementById("customImg").src = canvas.toDataURL();
+			      document.getElementById("customImgNew").src = canvas.toDataURL();
 			  }
 			  image.src = event.target.result;
 			};
