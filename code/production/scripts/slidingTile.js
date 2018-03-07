@@ -7,8 +7,8 @@ function handleDocumentLoad()
 	var medium = document.getElementById('Medium');
 	var hard = document.getElementById('Hard');
 	var instructions = document.getElementById('instructions');
-	var upload = document.getElementById('upload');
-	upload.addEventListener('click', customUpload);
+	var upload = document.getElementById('customFile');
+	upload.addEventListener('onchange', readURL);
 	game.style.visibility = 'hidden';
 	easy.style.display = 'none'; //Hides difficulty button
 	medium.style.display = 'none'; //Hides difficulty button
@@ -103,30 +103,19 @@ function handleDocumentLoad()
 	}
 	
 	/*Allow custom image upload*/
-	function customUpload() {
-		var imgFile = document.getElementById('submitfile');
-		if (imgFile.files && imgFile.files[0]) {
-			var width;
-			var height;
-			var fileSize;
-			var reader = new FileReader();
-			reader.onload = function(event) {
-				var dataUri = event.target.result,
-				img = document.createElement("img");
-				img.src = dataUri;
-				width = img.width;
-				height = img.height;
-				fileSize = imgFile.files[0].size;
-				alert(width);
-				alert(height);
-				alert(fileSize);
-			};
-			reader.onerror = function(event) {
-				console.error("File could not be read! Code " + event.target.error.code);
-			};
-			reader.readAsDataURL(imgFile.files[0]);
-		}
-	}
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+            		var reader = new FileReader();
+
+            		reader.onload = function (e) {
+                		upload.src = e.target.result;
+                    		upload.style.width = '150px';
+                    		upload.style.height = '200px';
+            		};
+
+            		reader.readAsDataURL(input.files[0]);
+        	}
+    	}
 	
 	/*Click picture allows change*/
 	var dog = document.getElementById('dog');
