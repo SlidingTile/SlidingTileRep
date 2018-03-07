@@ -95,7 +95,7 @@
 		
 			<div id="custom"> <!-- All Custom Pictures -->
 				<input type='file'><br>
-				<img id="custom" src="#"></img>
+				<img id="customImg" src="#"></img>
 			</div>
 			<script>
 				$(function () {
@@ -109,7 +109,7 @@
 				});
 				
 				function imageIsLoaded(e) {
-					$('#custom').attr('src', e.target.result);
+					$('#customImg').attr('src', e.target.result);
 				};
 			</script>
 		</div> <!-- Closes Pictures -->
