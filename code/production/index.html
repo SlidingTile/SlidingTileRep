@@ -109,7 +109,10 @@
 				});
 				
 				function imageIsLoaded(e) {
-					$('#customImg').attr('src', e.target.result);
+					$('#customImg')
+						.attr('src', e.target.result)
+						.width(600)
+						.height(600);
 				};
 			</script>
 		</div> <!-- Closes Pictures -->
