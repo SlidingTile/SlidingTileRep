@@ -109,10 +109,11 @@
 				});
 				
 				function imageIsLoaded(e) {
-					$('#customImg')
-						.attr('src', e.target.result)
-						.width(600)
-						.height(600);
+					ImageTools.resize(this.files[0], {
+						width: 600,
+						height: 600
+					});
+					$('#customImg').attr('src', e.target.result);
 				};
 			</script>
 		</div> <!-- Closes Pictures -->
