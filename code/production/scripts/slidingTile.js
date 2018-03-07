@@ -113,6 +113,12 @@ function handleDocumentLoad()
 	var ferrari = document.getElementById('ferrari');
 	var mercedes = document.getElementById('mercedes');
 	
+	var italy = document.getElementById('italy');
+	var newYork = document.getElementById('newYork');
+	var london = document.getElementById('london');
+	var paris = document.getElementById('paris');
+	var dubai = document.getElementById('dubai');
+	
 	var source = document.getElementById('source');
 	
 	dog.addEventListener('click', changeSource);
@@ -126,6 +132,12 @@ function handleDocumentLoad()
 	audi.addEventListener('click', changeSource);
 	ferrari.addEventListener('click', changeSource);
 	mercedes.addEventListener('click', changeSource);
+	
+	italy.addEventListener('click', changeSource);
+	newYork.addEventListener('click', changeSource);
+	london.addEventListener('click', changeSource);
+	paris.addEventListener('click', changeSource);
+	dubai.addEventListener('click', changeSource);	
 	
 	function changeSource() {
 		var temp = this.id;
