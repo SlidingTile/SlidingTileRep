@@ -7,8 +7,8 @@ function handleDocumentLoad()
 	var medium = document.getElementById('Medium');
 	var hard = document.getElementById('Hard');
 	var instructions = document.getElementById('instructions');
-	var upload = document.getElementById('customFile');
-	upload.addEventListener('onchange', readURL);
+	var upload = document.getElementById('uploadButton');
+	upload.addEventListener('click', readURL);
 	game.style.visibility = 'hidden';
 	easy.style.display = 'none'; //Hides difficulty button
 	medium.style.display = 'none'; //Hides difficulty button
@@ -107,7 +107,7 @@ function handleDocumentLoad()
 		if (this.files && this.files[0]) {
             		var reader = new FileReader();
 
-            		reader.onload = function (e) {
+            		reader.load = function (e) {
 				var custom = document.getElementById('custom');
                 		custom.src = e.target.result;
                     		custom.style.width = '150px';
