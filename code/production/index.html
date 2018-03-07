@@ -106,18 +106,18 @@
 			  var image = new Image();
 
 			  image.onload=function() {
-				  if (document.getElementById("original-Img") != null) {
 			      	document.getElementById("original-Img").src = image.src;
-				  } else {
-				document.getElementById("source").src = image.src;
-				  }
 			      var canvas = document.createElement("canvas");
 			      var context = canvas.getContext("2d");
 			      canvas.width = 600;
 			      canvas.height = 600;
 			      context.drawImage(image, 0, 0, image.width, image.height, 0, 0, canvas.width, canvas.height);
 
-			      document.getElementById("upload-Preview").src = canvas.toDataURL();
+				  if(document.getElementById("upload-Preview") != null) {
+					  document.getElementById("upload-Preview").src = canvas.toDataURL();
+				  } else {
+					  document.getElementById("source").src = canvas.toDataURL();
+				  }
 			  }
 			  image.src = event.target.result;
 			};
