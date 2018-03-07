@@ -103,8 +103,8 @@ function handleDocumentLoad()
 	}
 	
 	/*Allow custom image upload*/
-	function readURL(input) {
-		if (input.files && input.files[0]) {
+	function readURL() {
+		if (this.files && this.files[0]) {
             		var reader = new FileReader();
 
             		reader.onload = function (e) {
@@ -113,7 +113,7 @@ function handleDocumentLoad()
                     		upload.style.height = '200px';
             		};
 
-            		reader.readAsDataURL(input.files[0]);
+            		reader.readAsDataURL(this.files[0]);
         	}
     	}
 	
