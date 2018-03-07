@@ -119,6 +119,8 @@ function handleDocumentLoad()
 	var paris = document.getElementById('paris');
 	var dubai = document.getElementById('dubai');
 	
+	var customImg = document.getElementById('customImg');
+	
 	var source = document.getElementById('source');
 	
 	dog.addEventListener('click', changeSource);
@@ -137,7 +139,9 @@ function handleDocumentLoad()
 	newYork.addEventListener('click', changeSource);
 	london.addEventListener('click', changeSource);
 	paris.addEventListener('click', changeSource);
-	dubai.addEventListener('click', changeSource);	
+	dubai.addEventListener('click', changeSource);
+	
+	customImg.addEventListener('click', changeSource);
 	
 	function changeSource() {
 		var temp = this.id;
