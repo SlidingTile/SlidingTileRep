@@ -7,6 +7,8 @@ function handleDocumentLoad()
 	var medium = document.getElementById('Medium');
 	var hard = document.getElementById('Hard');
 	var instructions = document.getElementById('instructions');
+	reset.style.visibility = 'hidden';
+	random.style.visibility = 'hidden';
 	game.style.visibility = 'hidden';
 	easy.style.display = 'none'; //Hides difficulty button
 	medium.style.display = 'none'; //Hides difficulty button
@@ -148,6 +150,8 @@ function handleDocumentLoad()
 	function changeSource() {
 		var temp = this.id;
 		if(initalImage == 0) {
+			reset.style.visibility = 'visible';
+			random.style.visibility = 'visible';
 			easy.style.display = 'initial'; //Shows difficulty button
 			medium.style.display = 'initial'; //Shows difficulty button
 			hard.style.display = 'initial'; //Shows difficulty button
