@@ -106,6 +106,13 @@ function handleDocumentLoad()
 	var bird = document.getElementById('bird');
 	var cow = document.getElementById('cow');
 	var horse = document.getElementById('horse');
+	
+	var bmw = document.getElementById('bmw');
+	var bugatti = document.getElementById('bugatti');
+	var audi = document.getElementById('audi');
+	var ferrari = document.getElementById('ferrari');
+	var mercedes = document.getElementById('mercedes');
+	
 	var source = document.getElementById('source');
 	
 	dog.addEventListener('click', changeSource);
@@ -113,6 +120,12 @@ function handleDocumentLoad()
 	bird.addEventListener('click', changeSource);
 	cow.addEventListener('click', changeSource);
 	horse.addEventListener('click', changeSource);
+	
+	bmw.addEventListener('click', changeSource);
+	bugatti.addEventListener('click', changeSource);
+	audi.addEventListener('click', changeSource);
+	ferrari.addEventListener('click', changeSource);
+	mercedes.addEventListener('click', changeSource);
 	
 	function changeSource() {
 		var temp = this.id;
@@ -245,7 +258,7 @@ function handleDocumentLoad()
 
 	/* Show Leaderboards */
 	var showLeaders = document.getElementById("showLeaderboard"); // get button for leaderboards
-	showLeaders.addEventListener('click', showLeaderboards)
+	showLeaders.addEventListener('click', showLeaderboards);
 	
 	function showLeaderboards() // This needs to be called to essentially refresh the scores - Could be used as a refresh button rather than 
 	// hiding the whole leaderboard.
