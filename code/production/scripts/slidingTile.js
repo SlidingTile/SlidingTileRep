@@ -119,7 +119,7 @@ function handleDocumentLoad()
 	var paris = document.getElementById('paris');
 	var dubai = document.getElementById('dubai');
 	
-	var customImg = document.getElementById('customImg');
+	var customImg = document.getElementById('upload-Preview');
 	
 	var source = document.getElementById('source');
 	
