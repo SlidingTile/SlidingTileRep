@@ -7,6 +7,7 @@ function handleDocumentLoad()
 	var medium = document.getElementById('Medium');
 	var hard = document.getElementById('Hard');
 	var instructions = document.getElementById('instructions');
+	var reset = document.getElementById("reset"); //Reset button
 	reset.style.visibility = 'hidden';
 	random.style.visibility = 'hidden';
 	game.style.visibility = 'hidden';
@@ -244,7 +245,6 @@ function handleDocumentLoad()
 	}
 	
 	/*Reset Function */
-	var reset = document.getElementById("reset"); //Reset button
 	reset.addEventListener('click', resetAll);
 	
 	function resetGame() //Resets value and stops function
