@@ -140,6 +140,10 @@ a:hover {
 	margin-bottom: 0;
 }
 
+#upload-Image {
+	margin-left: 20px;
+}
+
 img {
 	max-width: 200px;
 	max-height: 200px;
