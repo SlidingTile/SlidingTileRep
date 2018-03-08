@@ -364,7 +364,7 @@ function handleDocumentLoad()
 	canvas.addEventListener('click', checkMouse);
 	random.addEventListener('click', function() {
 		randomizeAmount = 100;
-		randomize;
+		randomize();
 	});
 	window.addEventListener('load', keyInput);
 	
