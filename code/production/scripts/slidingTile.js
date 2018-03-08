@@ -72,6 +72,7 @@ function handleDocumentLoad()
 			custom.style.display = 'none';
 		} else if(categories.value === 'Custom') {
 			title.innerHTML = 'Custom: Recommended upload size 600 x 600';
+			secondTitle.innerHTML = '';
 		} else {
 			title.innerHTML = categories.value;
 			secondTitle.innerHTML = '';
