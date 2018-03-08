@@ -396,6 +396,7 @@ function handleDocumentLoad()
     	var randomizeAmount = 100; //Change this to randomize more
     	var prevRandom;
 	function randomize() {
+	randomizeAmount = 100;
         if(randomizeAmount > 0) { 
                 var x = Math.floor(Math.random() * (cells));
                 var y = Math.floor(Math.random() * (cells));
