@@ -362,12 +362,15 @@ function handleDocumentLoad()
 	
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	canvas.addEventListener('click', checkMouse);
-	random.addEventListener('click', randomize);
+	random.addEventListener('click', function() {
+		randomizeAmount = 100;
+		randomize;
+	});
 	window.addEventListener('load', keyInput);
 	
 	var canvSize = 600; //size of the canvas size in pixels
-    	canvas.width = canvSize; //Set the size of the canvas
-    	canvas.height = canvSize; // "
+    	canvas.width = canvSize;
+    	canvas.height = canvSize;
     
     	var cells = 3;  //How many cells in a row/ column - Change this variable to change difficulty
     	var cellSize = canvSize/cells;
@@ -396,7 +399,6 @@ function handleDocumentLoad()
     	var randomizeAmount = 100; //Change this to randomize more
     	var prevRandom;
 	function randomize() {
-	randomizeAmount = 100;
         if(randomizeAmount > 0) { 
                 var x = Math.floor(Math.random() * (cells));
                 var y = Math.floor(Math.random() * (cells));
