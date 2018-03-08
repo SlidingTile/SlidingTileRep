@@ -8,6 +8,7 @@ function handleDocumentLoad()
 	var hard = document.getElementById('Hard');
 	var instructions = document.getElementById('instructions');
 	var reset = document.getElementById("reset"); //Reset button
+	var random = document.getElementById('random'); //Randomise button
 	reset.style.visibility = 'hidden';
 	random.style.visibility = 'hidden';
 	game.style.visibility = 'hidden';
@@ -358,7 +359,6 @@ function handleDocumentLoad()
 	/*Sliding Tile Function*/
 	var canvas = document.getElementById('game');
 	var ctx = canvas.getContext('2d');
-	var random = document.getElementById('random');
 	
 	canvas.addEventListener('mousemove', onMouseUpdate, false);
 	canvas.addEventListener('click', checkMouse);
