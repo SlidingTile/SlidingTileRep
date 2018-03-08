@@ -483,6 +483,7 @@ function handleDocumentLoad()
 			    checkKeyboard(emptySquare.x - cellSize, emptySquare.y);
 		    } else if (event.keyCode === 82) { //'R' Randomize
 			    event.preventDefault();
+			    randomizeAmount = 100;
 			    randomize();
 		    }
 	    });
