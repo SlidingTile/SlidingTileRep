@@ -17,6 +17,7 @@ function handleDocumentLoad()
 	hard.style.display = 'none'; //Hides difficulty button
 	var image;
 	var initalImage = 0;
+	var txt;
 	
 	function enableCanvas() {
 		game.style.visibility = 'initial';
@@ -39,8 +40,22 @@ function handleDocumentLoad()
 	/* Score */
 	var name;
 	var score;
+	var player1Name;
+	var player2Name;
+	var player3Name;
+	var player4Name;
+	var player5Name;
 	
-
+	var playerNames = ["Player One","Player Two","Player Three","Player Four","Player Five"];
+	var playerScores = [200,135,105,98,75,45];
+	playerScores.length = 5;
+	
+	var player1Score; 
+	var player2Score; 
+	var player3Score; 
+	var player4Score;
+	var player5Score;
+	
 	
 	/* Difficulty */
 	var difficulty = 300;
@@ -220,17 +235,21 @@ function handleDocumentLoad()
 		}
 	}
 
+	/* reading from a text file */
+
 	/*Difficulty Functions - Change values as needed */
 	hard.addEventListener('click', HardDifficulty);
 	medium.addEventListener('click', MediumDifficulty);	
-	easy.addEventListener('click', EasyDifficulty);
 	
+	easy.addEventListener('click', EasyDifficulty);
 	function EasyDifficulty() {
 		resetGame(); // reset everything
 		enableCanvas();
 		startTimer();
 		difficulty = 300;
 	}
+	
+	
 	
 	function MediumDifficulty() {
 		resetGame(); // reset everything
@@ -283,6 +302,7 @@ function handleDocumentLoad()
 	/* Show Leaderboards */
 	var showLeaders = document.getElementById("showLeaderboard"); // get button for leaderboards
 	showLeaders.addEventListener('click', showLeaderboards);
+	//showLeaders.addEventListener('click', preload);
 	
 	function showLeaderboards() // This needs to be called to essentially refresh the scores - Could be used as a refresh button rather than 
 	// hiding the whole leaderboard.
@@ -290,20 +310,20 @@ function handleDocumentLoad()
 		document.getElementById("leaderboards").style.display = 'inline-block';
 		
 		// All the scores & names
-		document.getElementById("P1").innerHTML = localStorage.name1;
-		document.getElementById("P1S").innerHTML = localStorage.score1;
+		document.getElementById("P1").innerHTML = playerNames[0];
+		document.getElementById("P1S").innerHTML = playerScores[0];
 		
-		document.getElementById("P2").innerHTML = localStorage.name2;
-		document.getElementById("P2S").innerHTML = localStorage.score2;
+		document.getElementById("P2").innerHTML = playerNames[1];
+		document.getElementById("P2S").innerHTML = playerScores[1];
 		
-		document.getElementById("P3").innerHTML = localStorage.name3;
-		document.getElementById("P3S").innerHTML = localStorage.score3;
+		document.getElementById("P3").innerHTML = playerNames[2];
+		document.getElementById("P3S").innerHTML = playerScores[2];
 		
-		document.getElementById("P4").innerHTML = localStorage.name4;
-		document.getElementById("P4S").innerHTML = localStorage.score4;
+		document.getElementById("P4").innerHTML = playerNames[3];
+		document.getElementById("P4S").innerHTML = playerScores[3];
 		
-		document.getElementById("P5").innerHTML = localStorage.name5;
-		document.getElementById("P5S").innerHTML = localStorage.score5;
+		document.getElementById("P5").innerHTML = playerNames[4];
+		document.getElementById("P5S").innerHTML = playerScores[4];
 	}
 	
 	/* Winning Function */
@@ -312,42 +332,62 @@ function handleDocumentLoad()
 		/* Score formula (may need a rework) */
 		var FlatScore = 1100;
 		score = (FlatScore - totalSeconds) - moves ;
-		
+		//alert(localstorage.score1);
 		var name = window.prompt("You won! \nPlease enter your name: ");
 		// Using local storage - localName & localScore to check against other scores)
 		localStorage.setItem("localName", name); // set localName = players name this session.
 		localStorage.setItem("localScore", score); // set localScore = players score this session.
 		
 		// Make values 
+		// check  through all players scores if they equal 0 allow for new scores to pass through
+		
+		
+		
+
+		
+		
+		var count = 0;
+		for(i=0; i <= playerScores.length ; i++)
+		{
+			count++;
+			if(playerScores[i] < score)
+			{
+				
+				playerScores.splice(count-1, 0, score);
+				playerNames.splice(count-1, 0, name);
+				i++;
+			}
+		}
 		
 		
 		// Check if score beats any of those on the leaderboards.
-		if(localStorage.localScore > localStorage.score1)
+		/*
+		if(localStorage.localScore > player1Score)
 		{
-			localStorage.score1 = localStorage.localScore; // set score to correct place
-			localStorage.name1 = localStorage.localName; // set name to correct place in leaderboard
+			player1Score = localStorage.localScore; // set score to correct place
+			player1Name = localStorage.localName; // set name to correct place in leaderboard
 		}
-		else if(localStorage.localScore > localStorage.score2)
+		else if(localStorage.localScore > player2Score)
 		{
-			localStorage.score2 = localStorage.localScore; // set score to correct place
-			localStorage.name2 = localStorage.localName; // set name to correct place in leaderboard
+			player2Score = localStorage.localScore; // set score to correct place
+			player2Name = localStorage.localName; // set name to correct place in leaderboard
 		}
-		else if(localStorage.localScore > localStorage.score3)
+		else if(localStorage.localScore > player3Score)
 		{
-			localStorage.score3 = localStorage.localScore; // set score to correct place
-			localStorage.name3 = localStorage.localName; // set name to correct place in leaderboard
+			player3Score = localStorage.localScore; // set score to correct place
+			player3Name = localStorage.localName; // set name to correct place in leaderboard
 		}
-		else if(localStorage.localScore > localStorage.score4)
+		else if(localStorage.localScore > player4Score)
 		{
-			localStorage.score4 = localStorage.localScore; // set score to correct place
-			localStorage.name4 = localStorage.localName; // set name to correct place in leaderboard
+			player4Score = localStorage.localScore; // set score to correct place
+			player4Name = localStorage.localName; // set name to correct place in leaderboard
 		}
-		else if(localStorage.localScore > localStorage.score5)
+		else if(localStorage.localScore > player5Score)
 		{
-			localStorage.score5 = localStorage.localScore; // set score to correct place
-			localStorage.name5 = localStorage.localName; // set name to correct place in leaderboard
+			player5Score = localStorage.localScore; // set score to correct place
+			player5Name = localStorage.localName; // set name to correct place in leaderboard
 		}
-		
+		*/
 		
 		localStorage.setItem("name", name);
 		localStorage.setItem("score", score);
@@ -483,10 +523,13 @@ function handleDocumentLoad()
 			    event.preventDefault();
 			    checkKeyboard(emptySquare.x - cellSize, emptySquare.y);
 		    } else if (event.keyCode === 82) { //'R' Randomize
-			    event.preventDefault();
-			    randomizeAmount = 100;
-			    randomize();
-		    }
+			    //event.preventDefault();
+			    //randomizeAmount = 100;
+			   // randomize();
+			   Win();
+		    } else if(event.keyCode === 88) { // 'X' testing purp
+			  alert(playerScores[0]);
+			}
 	    });
     }
     //Check
