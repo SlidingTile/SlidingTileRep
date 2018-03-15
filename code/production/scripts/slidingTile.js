@@ -307,7 +307,7 @@ function handleDocumentLoad()
 	function showLeaderboards() // This needs to be called to essentially refresh the scores - Could be used as a refresh button rather than 
 	// hiding the whole leaderboard.
 	{
-		document.getElementById("leaderboards").style.display = 'inline-block';
+		//document.getElementById("leaderboards").style.display = 'inline-block';
 		
 		// All the scores & names
 		document.getElementById("P1").innerHTML = playerNames[0];
@@ -351,36 +351,6 @@ function handleDocumentLoad()
                 break;
 			}
 		}
-		
-		
-		// Check if score beats any of those on the leaderboards.
-		/*
-		if(localStorage.localScore > player1Score)
-		{
-			player1Score = localStorage.localScore; // set score to correct place
-			player1Name = localStorage.localName; // set name to correct place in leaderboard
-		}
-		else if(localStorage.localScore > player2Score)
-		{
-			player2Score = localStorage.localScore; // set score to correct place
-			player2Name = localStorage.localName; // set name to correct place in leaderboard
-		}
-		else if(localStorage.localScore > player3Score)
-		{
-			player3Score = localStorage.localScore; // set score to correct place
-			player3Name = localStorage.localName; // set name to correct place in leaderboard
-		}
-		else if(localStorage.localScore > player4Score)
-		{
-			player4Score = localStorage.localScore; // set score to correct place
-			player4Name = localStorage.localName; // set name to correct place in leaderboard
-		}
-		else if(localStorage.localScore > player5Score)
-		{
-			player5Score = localStorage.localScore; // set score to correct place
-			player5Name = localStorage.localName; // set name to correct place in leaderboard
-		}
-		*/
 		
 		localStorage.setItem("name", name);
 		localStorage.setItem("score", score);
@@ -455,6 +425,7 @@ function handleDocumentLoad()
     	}
     //Get the position of the mouse when it updates
     function onMouseUpdate(e) {
+        showLeaderboards();
     	var rect = canvas.getBoundingClientRect();
     	mouseX = e.pageX - rect.left;
     	mouseY = e.pageY - rect.top - window.scrollY;
@@ -533,7 +504,7 @@ function handleDocumentLoad()
         if(ready == true){
         if((Tile.x + cellSize == emptySquare.x) && (Tile.y == emptySquare.y)){ //Move Current Tile Right
             emptySquare.x = Tile.x; //Move empty
-            //Tile.x += cellSize; //Move tile no anim
+            //Tile.x += cellSize; //Move tile with no anim
             ready = false;
             animate(Tile, "right");
             moves++;
@@ -668,7 +639,6 @@ function handleDocumentLoad()
         }
 
     }
-    
     
     //Tile Class
     function Tile(i, j, image){

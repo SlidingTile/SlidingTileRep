@@ -33,9 +33,9 @@ body.dark {
 /*Navigation*/
 nav {
 	background-color: #0b7aa3;
-	padding-top: 10px;
-	padding-bottom: 20px;
-	margin-bottom: 10px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	margin-bottom: 5px;
 }
 	
 nav.dark {
@@ -46,6 +46,8 @@ nav.dark {
 h1 {
 	text-align: center;
 	font-size: 60px;
+    margin: 0;
+    padding: 0;
 }
 
 /*Links*/
@@ -111,7 +113,7 @@ a:hover {
 }
 
 #middle {
-	margin-top: 40px;
+	margin-top: 20px;
 	width: 600px;
 	height: 600px;
 }
@@ -124,11 +126,12 @@ a:hover {
 
 #rightSideBar {
 	text-align: center;
-	margin-top: 150px;
+	margin-top: 20px;
 }
 
 #leaderboards{
 	text-align: center;
+    display: inline;
 }
 
 #pictures {
@@ -136,7 +139,7 @@ a:hover {
 	text-align: center;
 	border: solid 1px white;
 	padding-bottom: 20px;
-	margin-top: 100px;
+	margin-top: 20px;
 	margin-bottom: 0;
 }
 

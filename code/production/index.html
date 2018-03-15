@@ -33,7 +33,7 @@
 	
 		<div id="middle">
 			<canvas id="game" width="600px" height="600px">Cavas is not available on your browser</canvas><br>
-			<div id="instructions"><h2>SELECT AN IMAGE BELOW TO START!</h2><br><h3>R to Randomise<br>Arrow Keys Or Left Mouse to Move</h3></div>
+			<div id="instructions"><h2>Select an image below to start!</h2><br><h3>R to Randomise<br>Arrow Keys Or Left Mouse to Move</h3></div>
 			<button id ="Easy">Easy</button><br>
 			<button id ="Medium">Medium</button><br>
 			<button id ="Hard">Hard</button>
@@ -59,15 +59,15 @@
 		</div>
 	
 		<div id="pictures"> <!-- Changeable Pictures based on category -->
-			<h2>Categories</h2>
-			<select id="categories">
+			<h2 style="margin-top: 10px; padding: 0;">Categories</h2>
+			<select id="categories" style = "margin-top: 15px;">
 				<option value="default" selected>Select a Category</option>
 				<option value="Animals">Animals</option>
 				<option value="Cars">Cars</option>
 				<option value="Scenery">Scenery</option>
 				<option value="Custom">Custom</option>
 			</select>
-			<h3 id="secondTitle">Select a Category Using The Dropdown Menu</h3>
+			<h3 id="secondTitle" style = "margin: 0px; padding: 0px;">Select a Category Using The Dropdown Menu</h3>
 			<label id="title"></label><br>
 			<div id="animals"> <!-- All Pictures of Animals -->
 				<img id="dog" src="images/dog.jpg" alt="Image Unvailable"></img>
