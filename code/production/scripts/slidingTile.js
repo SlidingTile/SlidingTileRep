@@ -341,21 +341,14 @@ function handleDocumentLoad()
 		// Make values 
 		// check  through all players scores if they equal 0 allow for new scores to pass through
 		
-		
-		
-
-		
-		
-		var count = 0;
-		for(i=0; i <= playerScores.length ; i++)
+		for(var i=0; i <= playerScores.length ; i++)
 		{
-			count++;
-			if(playerScores[i] < score)
+			if(playerScores[i] <= score)
 			{
-				
-				playerScores.splice(count-1, 0, score);
-				playerNames.splice(count-1, 0, name);
+				playerScores.splice(i, 0, score);
+				playerNames.splice(i, 0, name);
 				i++;
+                break;
 			}
 		}
 		
@@ -451,7 +444,7 @@ function handleDocumentLoad()
                         randomize();
                     	}
 		
-		//Reset moves to 0
+		      //Reset moves to 0
             	moves = 0;
             	moveCounter.innerHTML = pad(moves);
             
@@ -524,11 +517,11 @@ function handleDocumentLoad()
 			    checkKeyboard(emptySquare.x - cellSize, emptySquare.y);
 		    } else if (event.keyCode === 82) { //'R' Randomize
 			    //event.preventDefault();
-			    //randomizeAmount = 100;
-			   // randomize();
-			   Win();
+			    randomizeAmount = 100;
+			   randomize();
+			   //Win();
 		    } else if(event.keyCode === 88) { // 'X' testing purp
-			  alert(playerScores[0]);
+			  //alert(playerScores[0]);
 			}
 	    });
     }
