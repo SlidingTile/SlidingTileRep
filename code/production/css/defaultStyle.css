@@ -117,8 +117,8 @@ a:hover {
 }
 
 #instructions {
+	text-align: center;
 	position: relative;
-	left: 100px;
 	top: -380px;
 }
 
