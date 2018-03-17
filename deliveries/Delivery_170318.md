@@ -2,7 +2,7 @@
  
 [Brief](https://github.com/SlidingTile/SlidingTileRep/blob/master/docs/brief/SlidingTileBrief.pdf)
 
-[Budget](https://github.com/SlidingTile/SlidingTileRep/blob/master/docs/budget/effort_committment.xlsx)
+[Budget](https://docs.google.com/spreadsheets/d/1T4SoB7-iiQmZ39Ddbokgq-6Rt3AQkwqLu9Oo3SD1B3c/edit#gid=1833387769)
  
 [Features](https://trello.com/b/mXhTkLfn/features)
  
