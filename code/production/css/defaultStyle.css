@@ -36,6 +36,11 @@ nav.dark {
     	background-color: #15202B;
 }
 
+#lightSwtich {
+	width: 150px;
+	text-align: center;
+}
+
 h1 {
 	text-align: center;
 	font-size: 60px;
