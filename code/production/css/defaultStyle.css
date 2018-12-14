@@ -149,7 +149,7 @@ select {
 
 #easy {
 	position: relative;
-	left: 250px;
+	left: 260px;
 	top: -380px;
 	border: 0;
     	outline: none;
@@ -169,7 +169,7 @@ select {
 
 #medium {
 	position: relative;
-	left: 235px;
+	left: 245px;
 	top: -360px;
 	border: 0;
     	outline: none;
@@ -189,7 +189,7 @@ select {
 
 #hard {
 	position: relative;
-	left: 250px;
+	left: 260px;
 	top: -340px;
 	border: 0;
     	outline: none;
