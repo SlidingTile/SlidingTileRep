@@ -82,7 +82,6 @@ a:hover {
 }
 
 #middle {
-	position: relative;
 	border: solid 1px;
 	margin-top: 20px;
 	width: 600px;
@@ -90,9 +89,9 @@ a:hover {
 }
 
 #instructions {
-	position: absolute;
+	position: relative;
+	top: -380px;
 	text-align: center;
-	z-index: 1;
 }
 
 #rightSideBar {
