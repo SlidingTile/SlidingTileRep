@@ -22,7 +22,8 @@ body {
 }
 	
 body.dark {
-    	background-color:#10171E;
+    	background-color: #10171E;
+	color: #FFF;
 }
 
 nav {
