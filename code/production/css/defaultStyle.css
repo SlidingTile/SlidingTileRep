@@ -89,7 +89,9 @@ a:hover {
 }
 
 #instructions {
+	position:relative;
 	text-align: center;
+	z-index:1;
 }
 
 #rightSideBar {
