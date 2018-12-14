@@ -82,6 +82,7 @@ a:hover {
 }
 
 #middle {
+	display: flex;
 	border: solid 1px;
 	margin-top: 20px;
 	width: 600px;
