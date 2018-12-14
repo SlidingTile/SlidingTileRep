@@ -37,7 +37,7 @@ nav.dark {
     	background-color: #15202B;
 }
 
-#lightSwtich {
+#lightSwitch {
 	width: 150px;
 	text-align: center;
 }
@@ -90,8 +90,6 @@ a:hover {
 
 #instructions {
 	text-align: center;
-	position: relative;
-	top: -380px;
 }
 
 #rightSideBar {
