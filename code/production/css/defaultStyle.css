@@ -40,6 +40,8 @@ nav.dark {
 #lightSwitch {
 	width: 150px;
 	text-align: center;
+	position: absolute;
+	right: 100px;
 }
 
 h1 {
