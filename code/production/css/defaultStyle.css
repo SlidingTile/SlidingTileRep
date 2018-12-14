@@ -59,7 +59,7 @@ a:hover {
 
 #mainContent {
 	padding: 10px;
-	background-color: #15202B;
+	background-color: #FFF;
 	margin-top: 10px;
 	display: flex;
 	justify-content: space-around; 
@@ -67,7 +67,7 @@ a:hover {
 }
 
 #mainContent.dark {
-    	background-color: #1C1C1C;
+    	background-color: #15202B;
 }
 
 #leftSideBar {
